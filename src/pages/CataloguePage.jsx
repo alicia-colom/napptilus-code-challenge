@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FlexBox, FlexItem } from 'react-styled-flex';
+import { FlexBox, FlexItem } from 'react-styled-flex';
 import ProductCard from '../components/ProductCard';
 
 const FAKE_PRODUCT_LIST = [
