@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ProductCard = ({ idProduct }) => {
+const ProductCard = ({ product }) => {
 	return (
 		<>
-			<div>Product Card in the list {idProduct}</div>
-			{idProduct}
+			<h3>{product.brand + ' ' + product.model}</h3>
+			<img src={product.imgUrl} alt={product.brand + ' ' + product.model} />
+			<div>
+				<small>{product.id}</small>
+				<div>{product.price} €</div>
+			</div>
 		</>
 	);
 };
