@@ -710,7 +710,7 @@ const Catalogue = () => {
 	const productList = initialList.map((product) => {
 		return (
 			<li key={product.id}>
-				<ProductCard idProduct={product.id} />
+				<ProductCard product={product} />
 			</li>
 		);
 	});
