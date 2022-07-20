@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import Header from './components/header/Header';
+import CataloguePage from './pages/CataloguePage';
 import './App.scss';
 
 function App() {
@@ -7,10 +7,7 @@ function App() {
 		<div className='App'>
 			<Header />
 			<main>
-				<img src={logo} className='App-logo' alt='logo' />
-				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-					Learn React
-				</a>
+				<CataloguePage />
 			</main>
 		</div>
 	);
