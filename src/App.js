@@ -1,12 +1,12 @@
-import Header from './components/header/Header';
+import Header from './components/Header';
 import CataloguePage from './pages/CataloguePage';
-import './App.scss';
+import './styles/App.scss';
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
-			<main>
+			<main className='main'>
 				<CataloguePage />
 			</main>
 		</div>
