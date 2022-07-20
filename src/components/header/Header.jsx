@@ -3,7 +3,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <header className="header headerContainer">
+    <header className="headerContainer">
       <div className="preHeader"></div>
       <h1 className="headerTitle">Napptilus code challenge</h1>
     </header>
