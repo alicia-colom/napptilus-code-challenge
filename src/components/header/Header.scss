@@ -1,0 +1,31 @@
+.header {
+	/*  VARIABLES:  */
+	--color-primary: #254edd;
+	--color-secondary: #0027aa;
+	--color-font-primary: #f4f4f4;
+}
+
+.headerContainer {
+	width: 100%;
+	position: fixed;
+	background-color: var(--color-primary);
+	display: block;
+	color: #f4f4f4; /* colorBg */
+}
+
+.preHeader {
+	height: clamp(0.5rem, 1vw, 1rem);
+	background-color: var(--color-secondary);
+}
+
+.headerTitle {
+	height: clamp(2.5rem, 1.5vw, 4rem);
+	margin: 0;
+	padding-left: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+	text-transform: capitalize;
+	font-size: clamp(1.125rem, 1.5vw, 2.25rem);
+}
