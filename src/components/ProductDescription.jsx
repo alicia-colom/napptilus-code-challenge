@@ -8,16 +8,25 @@ function capitalize(string) {
 const ProductDescription = ({ specifications }) => {
   const detailKeys = Object.keys(specifications);
   const detailValues = Object.values(specifications);
+  const notSpecifications = ['id', 'brand', 'model', 'price', 'imgUrl'];
+
+  const filterNonSpecifications = (index) => {
+    return notSpecifications.includes(detailKeys[index]);
+  };
 
   const description = detailValues
     .filter((value) => typeof value === 'string')
     .map((value, index) => {
+      const showItem = !!value && !filterNonSpecifications(index);
+
       return (
-        <FlexItem key={index} box center>
-          <h5>{capitalize(detailKeys[index])}:</h5>
-          &nbsp;
-          <p>{value}</p>
-        </FlexItem>
+        showItem && (
+          <FlexItem key={index} box center>
+            <h5>{capitalize(detailKeys[index])}:</h5>
+            &nbsp;
+            <p>{value}</p>
+          </FlexItem>
+        )
       );
     });
 
