@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FlexBox, FlexItem } from 'react-styled-flex';
+import { FlexBox } from 'react-styled-flex';
 
 import { getCatalogue } from '../api';
 import ProductCard from '../components/ProductCard';
@@ -13,19 +12,6 @@ const CataloguePage = () => {
       setInitialList(data);
     });
   }, []);
-
-  const productList = initialList.map((product) => {
-    return (
-      <FlexItem as="li" key={product.id}>
-        <Link
-          to={`/product/${product.id}`}
-          className="character-list__list--link"
-        >
-          <ProductCard product={product} />
-        </Link>
-      </FlexItem>
-    );
-  });
 
   return (
     <>
@@ -40,7 +26,9 @@ const CataloguePage = () => {
         wrap
         padding="0"
       >
-        {productList}
+        {initialList.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </FlexBox>
     </>
   );
