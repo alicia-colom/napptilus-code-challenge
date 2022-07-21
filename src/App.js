@@ -1,3 +1,4 @@
+import { FlexBox } from 'react-styled-flex';
 import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
@@ -10,12 +11,12 @@ const App = () => {
 	return (
 		<div className='App'>
 			<Header />
-			<main className='main'>
+			<FlexBox as='main' column center className='main'>
 				<Routes>
 					<Route exact path='/' element={<CataloguePage />} />
 					<Route exact path='/product/:id' element={<ProductPage />} />
 				</Routes>
-			</main>
+			</FlexBox>
 			<Footer />
 		</div>
 	);
