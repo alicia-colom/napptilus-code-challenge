@@ -5,30 +5,31 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const ProductDescription = ({ specifications }) => {
-  const detailKeys = Object.keys(specifications);
-  const detailValues = Object.values(specifications);
-  const notSpecifications = ['id', 'brand', 'model', 'price', 'imgUrl'];
+const ProductDescription = ({ productDetails }) => {
+  const noToShowInDescription = ['id', 'brand', 'model', 'price', 'imgUrl'];
 
-  const filterNonSpecifications = (index) => {
-    return notSpecifications.includes(detailKeys[index]);
-  };
-
-  const description = detailValues
-    .filter((value) => typeof value === 'string')
-    .map((value, index) => {
-      const showItem = !!value && !filterNonSpecifications(index);
-
+  const filteredProductDetailsArr = Object.entries(productDetails).filter(
+    function ([key, value]) {
       return (
-        showItem && (
-          <FlexItem key={index} box center>
-            <h5>{capitalize(detailKeys[index])}:</h5>
-            &nbsp;
-            <p>{value}</p>
-          </FlexItem>
-        )
+        value &&
+        typeof value === 'string' &&
+        !noToShowInDescription.includes(key)
       );
-    });
+    },
+  );
+
+  const description = filteredProductDetailsArr.map((item, index) => {
+    const property = capitalize(item[0]);
+    const value = item[1];
+
+    return (
+      <FlexItem key={index} box center>
+        <h5>{property}:</h5>
+        &nbsp;
+        <p>{value}</p>
+      </FlexItem>
+    );
+  });
 
   return (
     <FlexItem>

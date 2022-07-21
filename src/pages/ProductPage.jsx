@@ -64,13 +64,17 @@ const FAKE_PRODUCT_DETAIL = {
 const ProductPage = () => {
   return (
     <>
-      <h3>PRODUCT PAGE</h3>
+      <h3>
+        {`${FAKE_PRODUCT_DETAIL.brand.toUpperCase()} · ${
+          FAKE_PRODUCT_DETAIL.model
+        }`}
+      </h3>
       <FlexBox gap="24px" justifyContent="center" alignContent="center">
         <FlexItem>
           <img src={FAKE_PRODUCT_DETAIL.imgUrl} alt="" />
         </FlexItem>
         <FlexItem box column>
-          <ProductDescription specifications={FAKE_PRODUCT_DETAIL} />
+          <ProductDescription productDetails={FAKE_PRODUCT_DETAIL} />
           <FlexItem>
             <h4>ACTION</h4>
           </FlexItem>
