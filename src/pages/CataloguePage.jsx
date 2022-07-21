@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 
 import { getCatalogue } from '../api';
 import ProductCard from '../components/ProductCard';
 
-const Catalogue = () => {
+const CataloguePage = () => {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
@@ -16,7 +17,12 @@ const Catalogue = () => {
   const productList = initialList.map((product) => {
     return (
       <FlexItem as="li" key={product.id}>
-        <ProductCard product={product} />
+        <Link
+          to={`/product/${product.id}`}
+          className="character-list__list--link"
+        >
+          <ProductCard product={product} />
+        </Link>
       </FlexItem>
     );
   });
@@ -40,4 +46,4 @@ const Catalogue = () => {
   );
 };
 
-export default Catalogue;
+export default CataloguePage;
