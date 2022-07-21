@@ -1,18 +1,24 @@
+import { Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CataloguePage from './pages/CataloguePage';
+import ProductPage from './pages/ProductPage';
 import './styles/App.scss';
 
-function App() {
+const App = () => {
 	return (
 		<div className='App'>
 			<Header />
 			<main className='main'>
-				<CataloguePage />
+				<Routes>
+					<Route exact path='/' element={<CataloguePage />} />
+					<Route exact path='/product/:id' element={<ProductPage />} />
+				</Routes>
 			</main>
-			<Footer/>
+			<Footer />
 		</div>
 	);
-}
+};
 
 export default App;
