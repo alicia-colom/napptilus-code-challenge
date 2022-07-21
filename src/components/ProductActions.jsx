@@ -18,9 +18,7 @@ const SelectContainer = ({
         name={code}
         id={label}
         defaultValue={
-          options.length === 1
-            ? options[0].code
-            : selectedProductToCart.code
+          options.length === 1 ? options[0].code : selectedProductToCart.code
         }
         value={selectedProductToCart.code}
         onChange={handleChange}
@@ -52,8 +50,8 @@ const ProductActions = ({ productDetails, capitalize }) => {
 
   const initialData = {
     id: productDetails['id'],
-    colorCode: colorOptions.length > 1 ? '' : colorOptions[0].colorCode,
-    storageCode: storageOptions.length > 1 ? '' : storageOptions[0].storageCode,
+    colorCode: colorOptions.length > 1 ? '' : colorOptions[0].code,
+    storageCode: storageOptions.length > 1 ? '' : storageOptions[0].code,
   };
   const [selectedProductToCart, setSelectedProductToCart] =
     useState(initialData);
@@ -70,7 +68,10 @@ const ProductActions = ({ productDetails, capitalize }) => {
     console.log('BUY PRODUCT', selectedProductToCart);
   };
 
-  const disabled = false;
+  const disabled =
+    !selectedProductToCart.id ||
+    !selectedProductToCart.colorCode ||
+    !selectedProductToCart.storageCode;
 
   return (
     <FlexItem>
