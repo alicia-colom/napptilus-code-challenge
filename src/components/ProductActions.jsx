@@ -1,6 +1,45 @@
 import React, { useState } from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 
+const SelectContainer = ({
+  label,
+  code,
+  options,
+  selectedProductToCart,
+  handleChange,
+  capitalize,
+}) => {
+  return (
+    <FlexBox key={label} center>
+      <label htmlFor={label} style={{ width: '100px', justifySelf: 'right' }}>
+        <h5>{capitalize(label)}</h5>
+      </label>
+      <select
+        name={code}
+        id={label}
+        defaultValue={
+          options.length === 1
+            ? options[0].code
+            : selectedProductToCart.code
+        }
+        value={selectedProductToCart.code}
+        onChange={handleChange}
+      >
+        <option disabled selected value="">
+          -- select an option --
+        </option>
+        {options.map((option, index) => {
+          return (
+            <option key={index} value={option.code} required>
+              {option.name}
+            </option>
+          );
+        })}
+      </select>
+    </FlexBox>
+  );
+};
+
 const ProductActions = ({ productDetails, capitalize }) => {
   const productDetailsForCustomization = Object.entries(productDetails).filter(
     function ([key, value]) {
@@ -37,67 +76,18 @@ const ProductActions = ({ productDetails, capitalize }) => {
     <FlexItem>
       <h4>ACTIONS</h4>
       <FlexBox as="ul" column alignItems="flex-start" padding="0">
-        <FlexBox key="color" center>
-          <label
-            htmlFor="color"
-            style={{ width: '100px', justifySelf: 'right' }}
-          >
-            <h5>Color</h5>
-          </label>
-          <select
-            name="colorCode"
-            id="color"
-            defaultValue={
-              colorOptions.length === 1
-                ? colorOptions[0].code
-                : selectedProductToCart.colorCode
-            }
-            value={selectedProductToCart.colorCode}
-            onChange={handleChange}
-          >
-            <option disabled selected value="">
-              -- select an option --
-            </option>
-            {colorOptions.map((option, index) => {
-              return (
-                <option key={index} value={option.code} required>
-                  {option.name}
-                </option>
-              );
-            })}
-          </select>
-        </FlexBox>
-        <FlexBox key="storage" center>
-          <label
-            htmlFor="storage"
-            style={{ width: '100px', justifySelf: 'right' }}
-          >
-            <h5>Storage</h5>
-          </label>
-          <select
-            name="storageCode"
-            id="storage"
-            defaultValue={
-              storageOptions.length === 1
-                ? storageOptions[0].code
-                : selectedProductToCart.storageCode
-            }
-            value={selectedProductToCart.storageCode}
-            onChange={handleChange}
-          >
-            <option disabled selected value="">
-              -- select an option --
-            </option>
-            {storageOptions.map((option, index) => {
-              return (
-                <option key={index} value={option.code} required>
-                  {option.name}
-                </option>
-              );
-            })}
-          </select>
-        </FlexBox>
-
+        <SelectContainer
+          label="color"
+          code="colorCode"
+          options={colorOptions}
+          {...{ selectedProductToCart, handleChange, capitalize }}
+        />
+        <SelectContainer
+          label="storage"
+          code="storageCode"
+          options={storageOptions}
+          {...{ selectedProductToCart, handleChange, capitalize }}
+        />
         <button type="submit" {...{ onClick, disabled }}>
           Buy
         </button>
