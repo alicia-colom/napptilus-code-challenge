@@ -10,10 +10,9 @@ export const getCatalogue = async () => {
 	}
 };
 
-export const getProductDetail = async (idProduct) => {
+export const getProductDetail = async (productId) => {
 	try {
-		const response = await fetch(URL + 'product/' + idProduct);
-		console.log('*** Response getProductDetail:', response);
+		const response = await fetch(URL + 'product/' + productId);
 		const data = await response.json();
 		return data;
 	} catch (error) {
