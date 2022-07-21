@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlexBox, FlexItem } from 'react-styled-flex';
+import { FlexItem } from 'react-styled-flex';
 
 const SelectContainer = ({
   label,
@@ -10,7 +10,7 @@ const SelectContainer = ({
   capitalize,
 }) => {
   return (
-    <FlexBox key={label} center>
+    <FlexItem box key={label} center>
       <label htmlFor={label} style={{ width: '100px', justifySelf: 'right' }}>
         <h5>{capitalize(label)}</h5>
       </label>
@@ -34,7 +34,7 @@ const SelectContainer = ({
           );
         })}
       </select>
-    </FlexBox>
+    </FlexItem>
   );
 };
 
@@ -74,26 +74,23 @@ const ProductActions = ({ productDetails, capitalize }) => {
     !selectedProductToCart.storageCode;
 
   return (
-    <FlexItem>
-      <h4>ACTIONS</h4>
-      <FlexBox as="ul" column alignItems="flex-start" padding="0">
-        <SelectContainer
-          label="color"
-          code="colorCode"
-          options={colorOptions}
-          {...{ selectedProductToCart, handleChange, capitalize }}
-        />
-        <SelectContainer
-          label="storage"
-          code="storageCode"
-          options={storageOptions}
-          {...{ selectedProductToCart, handleChange, capitalize }}
-        />
-        <button type="submit" {...{ onClick, disabled }}>
-          Buy
-        </button>
-      </FlexBox>
-    </FlexItem>
+    <>
+      <SelectContainer
+        label="color"
+        code="colorCode"
+        options={colorOptions}
+        {...{ selectedProductToCart, handleChange, capitalize }}
+      />
+      <SelectContainer
+        label="storage"
+        code="storageCode"
+        options={storageOptions}
+        {...{ selectedProductToCart, handleChange, capitalize }}
+      />
+      <button type="submit" {...{ onClick, disabled }}>
+        Buy
+      </button>
+    </>
   );
 };
 

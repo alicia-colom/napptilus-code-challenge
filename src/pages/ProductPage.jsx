@@ -71,30 +71,54 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+const Container = ({ title, heading, column, children }) => {
+  return (
+    <FlexItem>
+      <FlexItem box as={heading} justifySelf="flex-start">
+        {capitalize(title)}
+      </FlexItem>
+      <FlexBox as="ul" padding="0" alignItems="flex-start" {...{ column }}>
+        {children}
+      </FlexBox>
+    </FlexItem>
+  );
+};
+
 const ProductPage = () => {
   return (
-    <>
-      <h3>
-        {`${FAKE_PRODUCT_DETAIL.brand.toUpperCase()} · ${
-          FAKE_PRODUCT_DETAIL.model
-        }`}
-      </h3>
-      <FlexBox gap="100px" justifyContent="center" alignContent="center">
-        <FlexItem>
-          <img src={FAKE_PRODUCT_DETAIL.imgUrl} alt="" />
-        </FlexItem>
-        <FlexItem box column>
+    <FlexBox
+      gap="100px"
+      justifyContent="center"
+      alignContent="center"
+      pt="48px"
+    >
+      <FlexItem>
+        <img src={FAKE_PRODUCT_DETAIL.imgUrl} alt="" />
+      </FlexItem>
+      <FlexItem box column>
+        <Container
+          title={`${FAKE_PRODUCT_DETAIL.brand.toUpperCase()} · ${
+            FAKE_PRODUCT_DETAIL.model
+          }`}
+          heading="h2"
+        >
+          <FlexItem as="h4">Price:</FlexItem>
+          <FlexItem as="h3">&nbsp;{FAKE_PRODUCT_DETAIL.price}&nbsp;€</FlexItem>
+        </Container>
+        <Container title="description" heading="h4" column>
           <ProductDescription
             productDetails={FAKE_PRODUCT_DETAIL}
-            {...{capitalize}}
+            {...{ capitalize }}
           />
+        </Container>
+        <Container title="actions" heading="h4" column>
           <ProductActions
             productDetails={FAKE_PRODUCT_DETAIL}
             {...{ capitalize }}
           />
-        </FlexItem>
-      </FlexBox>
-    </>
+        </Container>
+      </FlexItem>
+    </FlexBox>
   );
 };
 

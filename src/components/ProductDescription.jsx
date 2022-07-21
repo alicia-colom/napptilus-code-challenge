@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexBox, FlexItem } from 'react-styled-flex';
+import { FlexItem } from 'react-styled-flex';
 
 const ProductDescription = ({ productDetails, capitalize }) => {
   const noToShowInDescription = ['id', 'brand', 'model', 'price', 'imgUrl'];
@@ -15,7 +15,7 @@ const ProductDescription = ({ productDetails, capitalize }) => {
     },
   );
 
-  const description = filteredProductDetailsArr.map((item, index) => {
+  const descriptionContent = filteredProductDetailsArr.map((item, index) => {
     const property = capitalize(item[0]);
     const value = item[1];
 
@@ -28,14 +28,7 @@ const ProductDescription = ({ productDetails, capitalize }) => {
     );
   });
 
-  return (
-    <FlexItem>
-      <h4>DESCRIPTION</h4>
-      <FlexBox as="ul" column alignItems="flex-start" padding="0">
-        {description}
-      </FlexBox>
-    </FlexItem>
-  );
+  return descriptionContent;
 };
 
 export default ProductDescription;
