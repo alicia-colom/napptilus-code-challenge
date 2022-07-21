@@ -1,11 +1,7 @@
 import React from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-const ProductDescription = ({ productDetails }) => {
+const ProductDescription = ({ productDetails, capitalize }) => {
   const noToShowInDescription = ['id', 'brand', 'model', 'price', 'imgUrl'];
 
   const filteredProductDetailsArr = Object.entries(productDetails).filter(
@@ -13,6 +9,7 @@ const ProductDescription = ({ productDetails }) => {
       return (
         value &&
         typeof value === 'string' &&
+        key &&
         !noToShowInDescription.includes(key)
       );
     },
@@ -34,7 +31,7 @@ const ProductDescription = ({ productDetails }) => {
   return (
     <FlexItem>
       <h4>DESCRIPTION</h4>
-      <FlexBox as="ul" column alignItems="flex-start">
+      <FlexBox as="ul" column alignItems="flex-start" padding="0">
         {description}
       </FlexBox>
     </FlexItem>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 import ProductDescription from '../components/ProductDescription';
+import ProductActions from '../components/ProductActions';
+import { getProductDetail } from '../api';
 
 const FAKE_PRODUCT_DETAIL = {
   id: 'ZmGrkLRPXOTpxsU4jjAcv',
@@ -47,6 +49,10 @@ const FAKE_PRODUCT_DETAIL = {
         code: 1000,
         name: 'Black',
       },
+      {
+        code: 1001,
+        name: 'White',
+      },
     ],
     storages: [
       {
@@ -61,6 +67,10 @@ const FAKE_PRODUCT_DETAIL = {
   },
 };
 
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const ProductPage = () => {
   return (
     <>
@@ -69,15 +79,19 @@ const ProductPage = () => {
           FAKE_PRODUCT_DETAIL.model
         }`}
       </h3>
-      <FlexBox gap="24px" justifyContent="center" alignContent="center">
+      <FlexBox gap="100px" justifyContent="center" alignContent="center">
         <FlexItem>
           <img src={FAKE_PRODUCT_DETAIL.imgUrl} alt="" />
         </FlexItem>
         <FlexItem box column>
-          <ProductDescription productDetails={FAKE_PRODUCT_DETAIL} />
-          <FlexItem>
-            <h4>ACTION</h4>
-          </FlexItem>
+          <ProductDescription
+            productDetails={FAKE_PRODUCT_DETAIL}
+            {...{capitalize}}
+          />
+          <ProductActions
+            productDetails={FAKE_PRODUCT_DETAIL}
+            {...{ capitalize }}
+          />
         </FlexItem>
       </FlexBox>
     </>
