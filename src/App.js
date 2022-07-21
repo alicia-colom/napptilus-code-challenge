@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { Routes, Route } from 'react-router-dom';
 
@@ -8,18 +9,29 @@ import ProductPage from './pages/ProductPage';
 import './styles/App.scss';
 
 const App = () => {
-	return (
-		<div className='App'>
-			<Header />
-			<FlexBox as='main' column center className='main'>
-				<Routes>
-					<Route exact path='/' element={<CataloguePage />} />
-					<Route exact path='/product/:id' element={<ProductPage />} />
-				</Routes>
-			</FlexBox>
-			<Footer />
-		</div>
-	);
+  const [isLoading, setIsLoading] = useState(false);
+  const [productDetails, setProductDetails] = useState(null);
+
+  return (
+    <div className="App">
+      <Header />
+      <FlexBox as="main" column center className="main">
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<CataloguePage {...{ setIsLoading, setProductDetails }} />}
+          />
+          <Route
+            exact
+            path="/product/:id"
+            element={!isLoading && <ProductPage {...{ productDetails }} />}
+          />
+        </Routes>
+      </FlexBox>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;

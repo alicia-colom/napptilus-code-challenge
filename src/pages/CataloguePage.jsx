@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FlexBox } from 'react-styled-flex';
-
 import { getCatalogue } from '../api';
 import ProductCard from '../components/ProductCard';
 
-const CataloguePage = () => {
+const CataloguePage = ({ setIsLoading, setProductDetails }) => {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
@@ -27,7 +26,10 @@ const CataloguePage = () => {
         padding="0"
       >
         {initialList.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            {...{ product, setIsLoading, setProductDetails }}
+          />
         ))}
       </FlexBox>
     </>
