@@ -5,12 +5,12 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CataloguePage from './pages/CataloguePage';
-import ProductPage from './pages/ProductPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 import './styles/App.scss';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [productDetails, setProductDetails] = useState(null);
+  const [mobileSpecifications, setMobileSpecifications] = useState(null);
 
   return (
     <div className="App">
@@ -20,12 +20,12 @@ const App = () => {
           <Route
             exact
             path="/"
-            element={<CataloguePage {...{ setIsLoading, setProductDetails }} />}
+            element={<CataloguePage {...{ setIsLoading, setMobileSpecifications }} />}
           />
           <Route
             exact
             path="/product/:id"
-            element={!isLoading && <ProductPage {...{ productDetails }} />}
+            element={!isLoading && <ProductDetailsPage {...{ mobileSpecifications }} />}
           />
         </Routes>
       </FlexBox>

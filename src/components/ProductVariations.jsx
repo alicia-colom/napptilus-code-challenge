@@ -5,7 +5,7 @@ const SelectContainer = ({
   label,
   code,
   options,
-  selectedProductToCart,
+  selectedMobileToCart,
   handleChange,
   capitalize,
 }) => {
@@ -18,9 +18,9 @@ const SelectContainer = ({
         name={code}
         id={label}
         defaultValue={
-          options.length === 1 ? options[0].code : selectedProductToCart.code
+          options.length === 1 ? options[0].code : selectedMobileToCart.code
         }
-        value={selectedProductToCart.code}
+        value={selectedMobileToCart.code}
         onChange={handleChange}
       >
         <option disabled selected value="">
@@ -38,40 +38,39 @@ const SelectContainer = ({
   );
 };
 
-const ProductActions = ({ productDetails, capitalize }) => {
-  const productDetailsForCustomization = Object.entries(productDetails).filter(
-    function ([key, value]) {
-      return key && key === 'options';
-    },
-  )[0][1];
+const ProductVariations = ({ mobileSpecifications, capitalize }) => {
+  const productDetailsForCustomization = Object.entries(
+    mobileSpecifications,
+  ).filter(function ([key, value]) {
+    return key && key === 'options';
+  })[0][1];
 
   const colorOptions = productDetailsForCustomization.colors;
   const storageOptions = productDetailsForCustomization.storages;
 
   const initialData = {
-    id: productDetails['id'],
+    id: mobileSpecifications['id'],
     colorCode: colorOptions.length > 1 ? '' : colorOptions[0].code,
     storageCode: storageOptions.length > 1 ? '' : storageOptions[0].code,
   };
-  const [selectedProductToCart, setSelectedProductToCart] =
-    useState(initialData);
+  const [selectedMobileToCart, setSelectedMobileToCart] = useState(initialData);
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
-    setSelectedProductToCart({
-      ...selectedProductToCart,
+    setSelectedMobileToCart({
+      ...selectedMobileToCart,
       [name]: value,
     });
   };
 
   const onClick = () => {
-    console.log('BUY PRODUCT', selectedProductToCart);
+    console.log('BUY MOBILE', selectedMobileToCart);
   };
 
   const disabled =
-    !selectedProductToCart.id ||
-    !selectedProductToCart.colorCode ||
-    !selectedProductToCart.storageCode;
+    !selectedMobileToCart.id ||
+    !selectedMobileToCart.colorCode ||
+    !selectedMobileToCart.storageCode;
 
   return (
     <>
@@ -79,13 +78,13 @@ const ProductActions = ({ productDetails, capitalize }) => {
         label="color"
         code="colorCode"
         options={colorOptions}
-        {...{ selectedProductToCart, handleChange, capitalize }}
+        {...{ selectedMobileToCart, handleChange, capitalize }}
       />
       <SelectContainer
         label="storage"
         code="storageCode"
         options={storageOptions}
-        {...{ selectedProductToCart, handleChange, capitalize }}
+        {...{ selectedMobileToCart, handleChange, capitalize }}
       />
       <button type="submit" {...{ onClick, disabled }}>
         Buy
@@ -94,4 +93,4 @@ const ProductActions = ({ productDetails, capitalize }) => {
   );
 };
 
-export default ProductActions;
+export default ProductVariations;

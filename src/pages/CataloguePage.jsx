@@ -3,7 +3,7 @@ import { FlexBox } from 'react-styled-flex';
 import { getCatalogue } from '../api';
 import ProductCard from '../components/ProductCard';
 
-const CataloguePage = ({ setIsLoading, setProductDetails }) => {
+const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
@@ -25,10 +25,10 @@ const CataloguePage = ({ setIsLoading, setProductDetails }) => {
         wrap
         padding="0"
       >
-        {initialList.map((product) => (
+        {initialList.map((mobile) => (
           <ProductCard
-            key={product.id}
-            {...{ product, setIsLoading, setProductDetails }}
+            key={mobile.id}
+            {...{ mobile, setIsLoading, setMobileSpecifications }}
           />
         ))}
       </FlexBox>
