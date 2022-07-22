@@ -6,6 +6,7 @@ import SearchBar from '../components/SearchBar';
 import ProductCard from '../components/ProductCard';
 
 const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
+  const [term, setTerm] = useState('');
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
@@ -16,12 +17,8 @@ const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
 
   return (
     <>
-      <FlexBox
-        width="100%"
-        justifyContent="flex-end"
-        marginRight="30px"
-      >
-        <SearchBar />
+      <FlexBox width="100%" justifyContent="flex-end" marginRight="30px">
+        <SearchBar {...{ term, setTerm }} />
       </FlexBox>
       <FlexBox
         as="ul"
