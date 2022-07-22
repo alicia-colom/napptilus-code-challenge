@@ -15,7 +15,7 @@ const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
 
   return (
     <Link
-      to={`/mobile/${mobile.id}`}
+      to={`/product/${mobile.id}`}
       onClick={() => handleLinkClick(mobile.id)}
     >
       <FlexBox as="li" column width="200px" center>
