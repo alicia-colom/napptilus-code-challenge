@@ -4,14 +4,14 @@ import { getCatalogue } from '../services/api';
 import { getItemFromLocalStorage } from '../services/storage';
 import { SearchBar, ProductCard } from '../components';
 
-const CatalogueView = ({ setIsLoading, setMobileSpecifications }) => {
+function CatalogueView({ setIsLoading, setMobileSpecifications }) {
   const [term, setTerm] = useState('');
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
     if (localStorage) {
       const data = getItemFromLocalStorage('catalogue');
-      !!data
+      data
         ? setInitialList(JSON.parse(data))
         : getCatalogue().then((data) => {
             setInitialList(data);
@@ -43,6 +43,6 @@ const CatalogueView = ({ setIsLoading, setMobileSpecifications }) => {
       </FlexBox>
     </>
   );
-};
+}
 
 export default CatalogueView;

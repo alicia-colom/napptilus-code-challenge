@@ -10,7 +10,7 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const ProductDetailsView = ({ mobileSpecifications, setCartCount }) => {
+function ProductDetailsView({ mobileSpecifications, setCartCount }) {
   return (
     <FlexBox
       gap="100px"
@@ -43,6 +43,6 @@ const ProductDetailsView = ({ mobileSpecifications, setCartCount }) => {
       </FlexItem>
     </FlexBox>
   );
-};
+}
 
 export default ProductDetailsView;
