@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 
-const Container = ({ title, heading, column, capitalize, children }) => {
+function Container({ title, heading, column, capitalize, children }) {
   return (
     <FlexItem>
       <FlexItem box as={heading} justifySelf="flex-start">
@@ -12,6 +12,6 @@ const Container = ({ title, heading, column, capitalize, children }) => {
       </FlexBox>
     </FlexItem>
   );
-};
+}
 
 export default Container;

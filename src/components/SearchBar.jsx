@@ -2,7 +2,7 @@ import React from 'react';
 import { FlexBox } from 'react-styled-flex';
 import '../styles/SearchBar.scss';
 
-const SearchBar = ({ term, setTerm }) => {
+function SearchBar({ term, setTerm }) {
   const handleInputChange = (ev) => {
     setTerm(ev.target.value);
   };
@@ -28,7 +28,7 @@ const SearchBar = ({ term, setTerm }) => {
           onKeyPress={handleInputEnter}
         />
         <button
-          type="reset"
+          type="button"
           title="Borrar búsqueda"
           className="btn"
           onClick={() => setTerm('')}
@@ -38,6 +38,6 @@ const SearchBar = ({ term, setTerm }) => {
       </FlexBox>
     </form>
   );
-};
+}
 
 export default SearchBar;

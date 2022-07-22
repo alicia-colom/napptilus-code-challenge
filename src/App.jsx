@@ -6,7 +6,7 @@ import { CatalogueView, ProductDetailsView } from './views';
 import { Header, Footer } from './components';
 import './styles/App.scss';
 
-const App = () => {
+function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [mobileSpecifications, setMobileSpecifications] = useState(null);
   const [cartCount, setCartCount] = useState(0);
@@ -39,6 +39,6 @@ const App = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default App;

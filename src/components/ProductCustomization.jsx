@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { updateCart } from '../services/api';
 import Select from './Select';
 
-const ProductCustomization = ({
+function ProductCustomization({
   mobileSpecifications,
   setCartCount,
   capitalize,
-}) => {
+}) {
   const productDetailsForCustomization = Object.entries(
     mobileSpecifications,
   ).filter(function ([key, value]) {
@@ -22,7 +22,7 @@ const ProductCustomization = ({
     storageCode: storageOptions.length > 1 ? null : storageOptions[0].code,
   };
   const [selectedMobileToCart, setSelectedMobileToCart] = useState(initialData);
-  
+
   const handleCustomizationChange = (ev) => {
     const { name, value } = ev.target;
     setSelectedMobileToCart({
@@ -60,6 +60,6 @@ const ProductCustomization = ({
       </button>
     </>
   );
-};
+}
 
 export default ProductCustomization;

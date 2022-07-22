@@ -4,7 +4,7 @@ import { FlexBox } from 'react-styled-flex';
 import { getProductDetail } from '../services/api';
 import { getItemFromLocalStorage } from '../services/storage';
 
-const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
+function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
   const productId = mobile.id;
 
   const handleLinkClick = () => {
@@ -35,6 +35,6 @@ const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
       </FlexBox>
     </Link>
   );
-};
+}
 
 export default ProductCard;

@@ -6,14 +6,13 @@ const ProductSpecifications = ({ mobileSpecifications, capitalize }) => {
 
   const filteredMobileSpecificationsArr = Object.entries(
     mobileSpecifications,
-  ).filter(function ([key, value]) {
-    return (
+  ).filter(
+    ([key, value]) =>
       value &&
       typeof value === 'string' &&
       key &&
-      !noToShowInDescription.includes(key)
-    );
-  });
+      !noToShowInDescription.includes(key),
+  );
 
   const descriptionContent = filteredMobileSpecificationsArr.map(
     (item, index) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { FlexBox } from 'react-styled-flex';
 import '../styles/Header.scss';
 
-const Header = ({ cartCount }) => {
+function Header({ cartCount }) {
   return (
     <FlexBox
       as="header"
@@ -16,6 +16,6 @@ const Header = ({ cartCount }) => {
       </i>
     </FlexBox>
   );
-};
+}
 
 export default Header;

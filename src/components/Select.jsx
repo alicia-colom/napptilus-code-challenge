@@ -1,14 +1,14 @@
 import React from 'react';
 import { FlexItem } from 'react-styled-flex';
 
-const Select = ({
+function Select({
   label,
   code,
   options,
   selectedMobileToCart,
   handleCustomizationChange,
   capitalize,
-}) => {
+}) {
   return (
     <FlexItem box key={label} center>
       <label htmlFor={label} style={{ width: '100px', justifySelf: 'right' }}>
@@ -26,16 +26,14 @@ const Select = ({
         <option disabled selected value="">
           -- select an option --
         </option>
-        {options.map((option, index) => {
-          return (
-            <option key={index} value={option.code} required>
-              {option.name}
-            </option>
-          );
-        })}
+        {options.map((option, index) => (
+          <option key={index} value={option.code} required>
+            {option.name}
+          </option>
+        ))}
       </select>
     </FlexItem>
   );
-};
+}
 
 export default Select;
