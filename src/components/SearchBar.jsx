@@ -1,10 +1,42 @@
 import React from 'react';
+import { FlexBox } from 'react-styled-flex';
+import '../styles/SearchBar.scss';
 
-const SearchBar = ({ term }) => {
+const SearchBar = ({ term, setTerm }) => {
+  const handleInputChange = (ev) => {
+    setTerm(ev.target.value);
+  };
+
+  const handleInputEnter = (ev) => {
+    if (ev.keyCode === '13') ev.preventDefault();
+  };
+
   return (
-    <>
-      <div>SearchBar component to filter products {term || 'empty'}</div>
-    </>
+    <form>
+      <FlexBox className="searchBox">
+        <i className="fa fa-search searchBox__icon" aria-hidden="true" />
+        <input
+          id="search"
+          name="search"
+          type="text"
+          className="searchBox__textArea"
+          title="Escribe tu término de búsqueda"
+          placeholder="Search..."
+          value={term}
+          required
+          onChange={handleInputChange}
+          onKeyPress={handleInputEnter}
+        />
+        <button
+          type="reset"
+          title="Borrar búsqueda"
+          className="btn"
+          onClick={() => setTerm('')}
+        >
+          <i className="fa fa-times btn__icon" aria-hidden="true" />
+        </button>
+      </FlexBox>
+    </form>
   );
 };
 
