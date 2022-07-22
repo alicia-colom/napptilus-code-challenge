@@ -2,23 +2,11 @@ import React from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 import ProductSpecifications from '../components/ProductSpecifications';
 import ProductVariations from '../components/ProductVariations';
+import Container from '../components/Container';
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-const Container = ({ title, heading, column, children }) => {
-  return (
-    <FlexItem>
-      <FlexItem box as={heading} justifySelf="flex-start">
-        {capitalize(title)}
-      </FlexItem>
-      <FlexBox as="ul" padding="0" alignItems="flex-start" {...{ column }}>
-        {children}
-      </FlexBox>
-    </FlexItem>
-  );
-};
 
 const ProductDetailsPage = ({ mobileSpecifications }) => {
   return (
@@ -37,14 +25,15 @@ const ProductDetailsPage = ({ mobileSpecifications }) => {
             mobileSpecifications.model
           }`}
           heading="h2"
+          {...{ capitalize }}
         >
           <FlexItem as="h4">Price:</FlexItem>
           <FlexItem as="h3">&nbsp;{mobileSpecifications.price}&nbsp;€</FlexItem>
         </Container>
-        <Container title="description" heading="h4" column>
+        <Container title="description" heading="h4" column {...{ capitalize }}>
           <ProductSpecifications {...{ mobileSpecifications, capitalize }} />
         </Container>
-        <Container title="actions" heading="h4" column>
+        <Container title="actions" heading="h4" column {...{ capitalize }}>
           <ProductVariations {...{ mobileSpecifications, capitalize }} />
         </Container>
       </FlexItem>
