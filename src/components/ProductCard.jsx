@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FlexBox } from 'react-styled-flex';
-import { getProductDetail } from '../api';
-import { getItemFromLocalStorage } from '../api/storage';
+import { getProductDetail } from '../services/api';
+import { getItemFromLocalStorage } from '../services/storage';
 
 const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
   const productId = mobile.id;

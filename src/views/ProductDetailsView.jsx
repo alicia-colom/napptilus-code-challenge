@@ -1,14 +1,16 @@
 import React from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
-import ProductSpecifications from '../components/ProductSpecifications';
-import ProductCustomization from '../components/ProductCustomization';
-import Container from '../components/Container';
+import {
+  Container,
+  ProductSpecifications,
+  ProductCustomization,
+} from '../components';
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const ProductDetailsPage = ({ mobileSpecifications, setCartCount }) => {
+const ProductDetailsView = ({ mobileSpecifications, setCartCount }) => {
   return (
     <FlexBox
       gap="100px"
@@ -43,4 +45,4 @@ const ProductDetailsPage = ({ mobileSpecifications, setCartCount }) => {
   );
 };
 
-export default ProductDetailsPage;
+export default ProductDetailsView;

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FlexBox } from 'react-styled-flex';
-import { getCatalogue } from '../api';
-import { getItemFromLocalStorage } from '../api/storage';
+import { getCatalogue } from '../services/api';
+import { getItemFromLocalStorage } from '../services/storage';
+import { SearchBar, ProductCard } from '../components';
 
-import SearchBar from '../components/SearchBar';
-import ProductCard from '../components/ProductCard';
-
-const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
+const CatalogueView = ({ setIsLoading, setMobileSpecifications }) => {
   const [term, setTerm] = useState('');
   const [initialList, setInitialList] = useState([]);
 
@@ -47,4 +45,4 @@ const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
   );
 };
 
-export default CataloguePage;
+export default CatalogueView;

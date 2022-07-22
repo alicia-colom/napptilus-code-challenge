@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import CataloguePage from './pages/CataloguePage';
-import ProductDetailsPage from './pages/ProductDetailsPage';
+import { CatalogueView, ProductDetailsView } from './views';
+import { Header, Footer } from './components';
 import './styles/App.scss';
 
 const App = () => {
@@ -22,7 +20,7 @@ const App = () => {
             exact
             path="/"
             element={
-              <CataloguePage {...{ setIsLoading, setMobileSpecifications }} />
+              <CatalogueView {...{ setIsLoading, setMobileSpecifications }} />
             }
           />
           <Route
@@ -30,7 +28,7 @@ const App = () => {
             path="/product/:id"
             element={
               !isLoading && (
-                <ProductDetailsPage
+                <ProductDetailsView
                   {...{ mobileSpecifications, setCartCount }}
                 />
               )

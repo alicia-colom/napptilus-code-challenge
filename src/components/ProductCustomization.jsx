@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { updateCart } from '../api';
+import { updateCart } from '../services/api';
 import Select from './Select';
 
 const ProductCustomization = ({
