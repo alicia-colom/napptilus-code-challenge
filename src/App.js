@@ -14,18 +14,22 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header cartNumber={22} />
       <FlexBox as="main" column center className="main">
         <Routes>
           <Route
             exact
             path="/"
-            element={<CataloguePage {...{ setIsLoading, setMobileSpecifications }} />}
+            element={
+              <CataloguePage {...{ setIsLoading, setMobileSpecifications }} />
+            }
           />
           <Route
             exact
             path="/product/:id"
-            element={!isLoading && <ProductDetailsPage {...{ mobileSpecifications }} />}
+            element={
+              !isLoading && <ProductDetailsPage {...{ mobileSpecifications }} />
+            }
           />
         </Routes>
       </FlexBox>

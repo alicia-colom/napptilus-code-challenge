@@ -1,14 +1,20 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import { FlexBox } from 'react-styled-flex';
 import '../styles/Header.scss';
 
-const Header = () => {
+const Header = ({ cartNumber }) => {
   return (
-    <header className="headerContainer">
-      <div className="preHeader"></div>
+    <FlexBox
+      as="header"
+      className="headerContainer"
+      center
+      justifyContent="space-between"
+    >
       <h1 className="headerTitle">Napptilus code challenge</h1>
-      <SearchBar />
-    </header>
+      <i className="fa fa-shopping-cart cart" aria-hidden="true">
+        <small className="cart__number">{cartNumber}</small>
+      </i>
+    </FlexBox>
   );
 };
 

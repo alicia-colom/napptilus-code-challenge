@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { getCatalogue } from '../api';
+
+import SearchBar from '../components/SearchBar';
 import ProductCard from '../components/ProductCard';
 
 const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
@@ -14,7 +16,13 @@ const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
 
   return (
     <>
-      <h2>CATALOGUE PAGE</h2>
+      <FlexBox
+        width="100%"
+        justifyContent="flex-end"
+        marginRight="30px"
+      >
+        <SearchBar />
+      </FlexBox>
       <FlexBox
         as="ul"
         gap="24px"
