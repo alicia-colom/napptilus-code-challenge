@@ -1,10 +1,11 @@
+import { setItemToLocalStorage } from './storage';
 const URL = 'https://front-test-api.herokuapp.com/api/';
 
 export const getCatalogue = async () => {
   try {
     const response = await fetch(URL + 'product');
     const data = await response.json();
-    localStorage.setItem('catalogue', JSON.stringify(data));
+    setItemToLocalStorage('catalogue', JSON.stringify(data));
     return data;
   } catch (error) {
     throw error;
@@ -15,7 +16,7 @@ export const getProductDetail = async (productId) => {
   try {
     const response = await fetch(URL + 'product/' + productId);
     const data = await response.json();
-    localStorage.setItem(productId, JSON.stringify(data));
+    setItemToLocalStorage('product_id_' + productId, JSON.stringify(data));
     return data;
   } catch (error) {
     throw error;
@@ -30,6 +31,8 @@ export const updateCart = async (productDetail) => {
       headers: { 'content-type': 'application/json' },
     });
     const data = await response.json();
+    console.log('** DATA EN API', data);
+    setItemToLocalStorage('cart_count', JSON.stringify(data));
     return data;
   } catch (error) {
     throw error;

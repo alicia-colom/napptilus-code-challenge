@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FlexBox } from 'react-styled-flex';
 import { getProductDetail } from '../api';
+import { getItemFromLocalStorage } from '../api/storage';
 
 const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
   const productId = mobile.id;
@@ -9,7 +10,7 @@ const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
   const handleLinkClick = () => {
     setIsLoading(true);
     if (productId) {
-      const dataStored = window.localStorage.getItem(productId);
+      const dataStored = getItemFromLocalStorage(productId);
       if (!!dataStored) {
         setMobileSpecifications(JSON.parse(dataStored));
         setIsLoading(false);

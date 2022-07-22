@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { getCatalogue } from '../api';
+import { getItemFromLocalStorage } from '../api/storage';
 
 import SearchBar from '../components/SearchBar';
 import ProductCard from '../components/ProductCard';
@@ -10,8 +11,8 @@ const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
-    if (window.localStorage) {
-      const data = window.localStorage.getItem('catalogue');
+    if (localStorage) {
+      const data = getItemFromLocalStorage('catalogue');
       !!data
         ? setInitialList(JSON.parse(data))
         : getCatalogue().then((data) => {
