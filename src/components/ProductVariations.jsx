@@ -50,7 +50,7 @@ const ProductVariations = ({ mobileSpecifications, capitalize }) => {
         {...{ selectedMobileToCart, handleChange, capitalize }}
       />
       <button type="submit" {...{ onClick, disabled }}>
-        Buy
+        Add to cart
       </button>
     </>
   );

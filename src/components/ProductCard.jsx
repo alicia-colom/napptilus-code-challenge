@@ -23,7 +23,6 @@ const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
         <h4>{mobile.model}</h4>
         <img src={mobile.imgUrl} alt={mobile.brand + ' ' + mobile.model} />
         <div>
-          <small>{mobile.id}</small>
           <div>{mobile.price} €</div>
         </div>
       </FlexBox>
