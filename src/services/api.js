@@ -31,7 +31,6 @@ export const updateCart = async (productDetail) => {
       headers: { 'content-type': 'application/json' },
     });
     const data = await response.json();
-    console.log('** DATA EN API', data);
     setItemToLocalStorage('cart_count', JSON.stringify(data));
     return data;
   } catch (error) {
