@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 import ProductSpecifications from '../components/ProductSpecifications';
-import ProductVariations from '../components/ProductVariations';
+import ProductCustomization from '../components/ProductCustomization';
 import Container from '../components/Container';
 
 function capitalize(string) {
@@ -34,7 +34,9 @@ const ProductDetailsPage = ({ mobileSpecifications }) => {
           <ProductSpecifications {...{ mobileSpecifications, capitalize }} />
         </Container>
         <Container title="actions" heading="h4" column {...{ capitalize }}>
-          <ProductVariations {...{ mobileSpecifications, capitalize }} />
+          <ProductCustomization
+            {...{ mobileSpecifications, capitalize }}
+          />
         </Container>
       </FlexItem>
     </FlexBox>

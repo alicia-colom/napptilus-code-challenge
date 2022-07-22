@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import Select from './Select';
 
-const ProductVariations = ({ mobileSpecifications, capitalize }) => {
+const ProductCustomization = ({
+  mobileSpecifications,
+  setCartNumber,
+  capitalize,
+}) => {
   const productDetailsForCustomization = Object.entries(
     mobileSpecifications,
   ).filter(function ([key, value]) {
@@ -28,6 +32,7 @@ const ProductVariations = ({ mobileSpecifications, capitalize }) => {
 
   const onClick = () => {
     console.log('BUY MOBILE', selectedMobileToCart);
+    setCartNumber(12)
   };
 
   const disabled =
@@ -56,4 +61,4 @@ const ProductVariations = ({ mobileSpecifications, capitalize }) => {
   );
 };
 
-export default ProductVariations;
+export default ProductCustomization;
