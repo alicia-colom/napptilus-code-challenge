@@ -1,12 +1,31 @@
 .App {
-  /*  VARIABLES:  */
-  --color-primary: #254edd;
-  --color-secondary: #0027aa;
-  --color-font-primary: #f4f4f4;
+  /*  COLOR VARIABLES:  */
+  --color-white: #fcfcfc;
+  --color-light-grey: #f5f5f5;
+  --color-medium-grey: #d5dbe2;
+  --color-dark-grey: #a0a0a0;
+  --color-yellow: #f4dc22;
+  --color-orange: #f19e4f;
+  --color-coral: #f0716e;
+  --color-pink: #ef4a8c;
+  --color-navy: #000549;
+
+  --color-bg-header: var(--color-wgite);
+  --color-bg-main: var(--color-light-grey);
+  --color-font-header: var(--color-coral);
+  --color-font-primary: var(--color-navy);
+  --color-font-secondary: var(--color-pink);
+  --color-active: var(--color-medium-grey);
+  --color-hover: var(--color-dark-grey);
+  --color-button: var(--color-orange);
+  --color-button-active: var(--color-pink);
+  --color-button-hover: var(--color-coral);
+  --color-font-button: var(--color-white);
 
   text-align: center;
 }
 
 .main {
-  margin-top: 75px;
+  margin-top: 90px;
+  background-color: var(--color-bg-header);
 }
