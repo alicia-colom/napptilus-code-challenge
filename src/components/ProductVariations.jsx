@@ -1,42 +1,5 @@
 import React, { useState } from 'react';
-import { FlexItem } from 'react-styled-flex';
-
-const SelectContainer = ({
-  label,
-  code,
-  options,
-  selectedMobileToCart,
-  handleChange,
-  capitalize,
-}) => {
-  return (
-    <FlexItem box key={label} center>
-      <label htmlFor={label} style={{ width: '100px', justifySelf: 'right' }}>
-        <h5>{capitalize(label)}</h5>
-      </label>
-      <select
-        name={code}
-        id={label}
-        defaultValue={
-          options.length === 1 ? options[0].code : selectedMobileToCart.code
-        }
-        value={selectedMobileToCart.code}
-        onChange={handleChange}
-      >
-        <option disabled selected value="">
-          -- select an option --
-        </option>
-        {options.map((option, index) => {
-          return (
-            <option key={index} value={option.code} required>
-              {option.name}
-            </option>
-          );
-        })}
-      </select>
-    </FlexItem>
-  );
-};
+import Select from './Select';
 
 const ProductVariations = ({ mobileSpecifications, capitalize }) => {
   const productDetailsForCustomization = Object.entries(
@@ -74,13 +37,13 @@ const ProductVariations = ({ mobileSpecifications, capitalize }) => {
 
   return (
     <>
-      <SelectContainer
+      <Select
         label="color"
         code="colorCode"
         options={colorOptions}
         {...{ selectedMobileToCart, handleChange, capitalize }}
       />
-      <SelectContainer
+      <Select
         label="storage"
         code="storageCode"
         options={storageOptions}
