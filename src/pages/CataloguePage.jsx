@@ -10,9 +10,14 @@ const CataloguePage = ({ setIsLoading, setMobileSpecifications }) => {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
-    getCatalogue().then((data) => {
-      setInitialList(data);
-    });
+    if (window.localStorage) {
+      const data = window.localStorage.getItem('catalogue');
+      !!data
+        ? setInitialList(JSON.parse(data))
+        : getCatalogue().then((data) => {
+            setInitialList(data);
+          });
+    }
   }, []);
 
   return (
