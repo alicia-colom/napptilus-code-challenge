@@ -9,13 +9,13 @@ function CatalogueView({ setIsLoading, setMobileSpecifications }) {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
-    if (localStorage) {
-      const data = getItemFromLocalStorage('catalogue');
-      data
-        ? setInitialList(JSON.parse(data))
-        : getCatalogue().then((data) => {
-            setInitialList(data);
-          });
+    const data = getItemFromLocalStorage('catalogue');
+    if (data) {
+      setInitialList(JSON.parse(data));
+    } else {
+      getCatalogue().then(() => {
+        setInitialList(data);
+      });
     }
   }, []);
 

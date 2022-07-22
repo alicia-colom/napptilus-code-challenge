@@ -11,7 +11,7 @@ function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
     setIsLoading(true);
     if (productId) {
       const dataStored = getItemFromLocalStorage(productId);
-      if (!!dataStored) {
+      if (dataStored) {
         setMobileSpecifications(JSON.parse(dataStored));
         setIsLoading(false);
       } else {
@@ -28,9 +28,12 @@ function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
       <FlexBox as="li" column width="200px" center>
         <h3>{mobile.brand}</h3>
         <h4>{mobile.model}</h4>
-        <img src={mobile.imgUrl} alt={mobile.brand + ' ' + mobile.model} />
+        <img src={mobile.imgUrl} alt={`${mobile.brand} ${mobile.model}`} />
         <div>
-          <div>{mobile.price} €</div>
+          <div>
+            {mobile.price}
+            &nbsp; €
+          </div>
         </div>
       </FlexBox>
     </Link>

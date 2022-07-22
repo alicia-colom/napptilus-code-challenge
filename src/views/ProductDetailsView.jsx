@@ -30,7 +30,11 @@ function ProductDetailsView({ mobileSpecifications, setCartCount }) {
           {...{ capitalize }}
         >
           <FlexItem as="h4">Price:</FlexItem>
-          <FlexItem as="h3">&nbsp;{mobileSpecifications.price}&nbsp;€</FlexItem>
+          <FlexItem as="h3">
+            &nbsp;
+            {mobileSpecifications.price}
+            &nbsp;€
+          </FlexItem>
         </Container>
         <Container title="description" heading="h4" column {...{ capitalize }}>
           <ProductSpecifications {...{ mobileSpecifications, capitalize }} />

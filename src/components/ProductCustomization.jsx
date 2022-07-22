@@ -9,15 +9,13 @@ function ProductCustomization({
 }) {
   const productDetailsForCustomization = Object.entries(
     mobileSpecifications,
-  ).filter(function ([key, value]) {
-    return key && key === 'options';
-  })[0][1];
+  ).filter(([key]) => key && key === 'options')[0][1];
 
   const colorOptions = productDetailsForCustomization.colors;
   const storageOptions = productDetailsForCustomization.storages;
 
   const initialData = {
-    id: mobileSpecifications['id'],
+    id: mobileSpecifications.id,
     colorCode: colorOptions.length > 1 ? null : colorOptions[0].code,
     storageCode: storageOptions.length > 1 ? null : storageOptions[0].code,
   };

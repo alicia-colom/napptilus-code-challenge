@@ -1,5 +1,9 @@
 const EXPIRATION_TIME = 60 * 60 * 1000;
 
+export const removeItemFromLocalStorage = (key) => {
+  localStorage.removeItem(key);
+};
+
 export const getItemFromLocalStorage = (key) => localStorage.getItem(key);
 
 export const setItemToLocalStorage = (key, value) => {
@@ -10,8 +14,4 @@ export const setItemToLocalStorage = (key, value) => {
     removeItemFromLocalStorage(key);
     timer && clearTimeout(timer);
   }, EXPIRATION_TIME);
-};
-
-export const removeItemFromLocalStorage = (key) => {
-  localStorage.removeItem(key);
 };
