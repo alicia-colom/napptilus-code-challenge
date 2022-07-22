@@ -4,20 +4,26 @@ import { FlexBox } from 'react-styled-flex';
 import { getProductDetail } from '../api';
 
 const ProductCard = ({ mobile, setIsLoading, setMobileSpecifications }) => {
-  const handleLinkClick = (productId) => {
+  const productId = mobile.id;
+
+  const handleLinkClick = () => {
     setIsLoading(true);
-    productId &&
-      getProductDetail(productId).then((data) => {
-        setMobileSpecifications(data);
+    if (productId) {
+      const dataStored = window.localStorage.getItem(productId);
+      if (!!dataStored) {
+        setMobileSpecifications(JSON.parse(dataStored));
         setIsLoading(false);
-      });
+      } else {
+        getProductDetail(productId).then((data) => {
+          setMobileSpecifications(data);
+          setIsLoading(false);
+        });
+      }
+    }
   };
 
   return (
-    <Link
-      to={`/product/${mobile.id}`}
-      onClick={() => handleLinkClick(mobile.id)}
-    >
+    <Link to={`/product/${mobile.id}`} onClick={handleLinkClick}>
       <FlexBox as="li" column width="200px" center>
         <h3>{mobile.brand}</h3>
         <h4>{mobile.model}</h4>

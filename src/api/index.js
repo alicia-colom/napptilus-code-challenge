@@ -15,6 +15,7 @@ export const getProductDetail = async (productId) => {
   try {
     const response = await fetch(URL + 'product/' + productId);
     const data = await response.json();
+    localStorage.setItem(productId, JSON.stringify(data));
     return data;
   } catch (error) {
     throw error;
