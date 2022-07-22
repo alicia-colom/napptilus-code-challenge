@@ -11,11 +11,11 @@ import './styles/App.scss';
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [mobileSpecifications, setMobileSpecifications] = useState(null);
-  const [cartNumber, setCartNumber] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
 
   return (
     <div className="App">
-      <Header {...{ cartNumber }} />
+      <Header {...{ cartCount }} />
       <FlexBox as="main" column center className="main">
         <Routes>
           <Route
@@ -31,7 +31,7 @@ const App = () => {
             element={
               !isLoading && (
                 <ProductDetailsPage
-                  {...{ mobileSpecifications, setCartNumber }}
+                  {...{ mobileSpecifications, setCartCount }}
                 />
               )
             }

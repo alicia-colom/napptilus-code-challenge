@@ -4,7 +4,7 @@ import Select from './Select';
 
 const ProductCustomization = ({
   mobileSpecifications,
-  setCartNumber,
+  setCartCount,
   capitalize,
 }) => {
   const productDetailsForCustomization = Object.entries(
@@ -32,7 +32,7 @@ const ProductCustomization = ({
   };
   const handleAddToCart = () => {
     updateCart(selectedMobileToCart).then((data) => {
-      setCartNumber(data.count);
+      setCartCount(data.count);
     });
   };
 
