@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { updateCart } from '../api';
 import Select from './Select';
 
 const ProductCustomization = ({
@@ -17,25 +18,25 @@ const ProductCustomization = ({
 
   const initialData = {
     id: mobileSpecifications['id'],
-    colorCode: colorOptions.length > 1 ? '' : colorOptions[0].code,
-    storageCode: storageOptions.length > 1 ? '' : storageOptions[0].code,
+    colorCode: colorOptions.length > 1 ? null : colorOptions[0].code,
+    storageCode: storageOptions.length > 1 ? null : storageOptions[0].code,
   };
   const [selectedMobileToCart, setSelectedMobileToCart] = useState(initialData);
-
-  const handleChange = (ev) => {
+  
+  const handleCustomizationChange = (ev) => {
     const { name, value } = ev.target;
     setSelectedMobileToCart({
       ...selectedMobileToCart,
       [name]: value,
     });
   };
-
-  const onClick = () => {
-    console.log('BUY MOBILE', selectedMobileToCart);
-    setCartNumber(12)
+  const handleAddToCart = () => {
+    updateCart(selectedMobileToCart).then((data) => {
+      setCartNumber(data.count);
+    });
   };
 
-  const disabled =
+  const disabledButton =
     !selectedMobileToCart.id ||
     !selectedMobileToCart.colorCode ||
     !selectedMobileToCart.storageCode;
@@ -46,15 +47,15 @@ const ProductCustomization = ({
         label="color"
         code="colorCode"
         options={colorOptions}
-        {...{ selectedMobileToCart, handleChange, capitalize }}
+        {...{ selectedMobileToCart, handleCustomizationChange, capitalize }}
       />
       <Select
         label="storage"
         code="storageCode"
         options={storageOptions}
-        {...{ selectedMobileToCart, handleChange, capitalize }}
+        {...{ selectedMobileToCart, handleCustomizationChange, capitalize }}
       />
-      <button type="submit" {...{ onClick, disabled }}>
+      <button type="submit" onClick={handleAddToCart} disabled={disabledButton}>
         Add to cart
       </button>
     </>

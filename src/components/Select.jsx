@@ -6,7 +6,7 @@ const Select = ({
   code,
   options,
   selectedMobileToCart,
-  handleChange,
+  handleCustomizationChange,
   capitalize,
 }) => {
   return (
@@ -21,7 +21,7 @@ const Select = ({
           options.length === 1 ? options[0].code : selectedMobileToCart.code
         }
         value={selectedMobileToCart.code}
-        onChange={handleChange}
+        onChange={handleCustomizationChange}
       >
         <option disabled selected value="">
           -- select an option --

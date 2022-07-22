@@ -8,7 +8,7 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const ProductDetailsPage = ({ mobileSpecifications }) => {
+const ProductDetailsPage = ({ mobileSpecifications, setCartNumber }) => {
   return (
     <FlexBox
       gap="100px"
@@ -35,7 +35,7 @@ const ProductDetailsPage = ({ mobileSpecifications }) => {
         </Container>
         <Container title="actions" heading="h4" column {...{ capitalize }}>
           <ProductCustomization
-            {...{ mobileSpecifications, capitalize }}
+            {...{ mobileSpecifications, setCartNumber, capitalize }}
           />
         </Container>
       </FlexItem>
