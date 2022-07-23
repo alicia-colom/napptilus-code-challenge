@@ -20,7 +20,7 @@ function App() {
         center
         className="main"
         maxWidth="872px"
-        padding="56px 0"
+        padding="50px 0"
         margin="auto"
       >
         <Routes>
