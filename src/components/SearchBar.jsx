@@ -27,14 +27,16 @@ function SearchBar({ term, setTerm }) {
           onChange={handleInputChange}
           onKeyPress={handleInputEnter}
         />
-        <button
-          type="button"
-          title="Clear"
-          className="cancelButton"
-          onClick={() => setTerm('')}
-        >
-          <i className="fa fa-times" aria-hidden="true" />
-        </button>
+        {term && (
+          <button
+            type="button"
+            title="Clear"
+            className="cancelButton"
+            onClick={() => setTerm('')}
+          >
+            <i className="fa fa-times" aria-hidden="true" />
+          </button>
+        )}
       </FlexBox>
     </form>
   );
