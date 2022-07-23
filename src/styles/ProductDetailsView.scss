@@ -1,0 +1,44 @@
+
+.productView {
+  &__img {
+    margin-right: 7vw;
+    @media all and (max-width: 800px) {
+      margin-right: 6vw;
+    }
+    @media all and (max-width: 720px) {
+      margin: 0 10vw 50px 10vw;
+    }
+  }
+
+  &__info {
+    @media all and (max-width: 720px) {
+      margin: 0 7vw;
+    }
+  }
+
+  &__specifications {
+  }
+
+  &__customization {
+    &--button {
+      margin-top: 32px;
+      padding: 7px 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--color-button);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-font-button);
+      &:hover {
+        cursor: pointer;
+        color: var(--color-button);
+        background-color: var(--color-button-hover);
+      }
+      &:active {
+        cursor: pointer;
+        color: var(--color-font-button);
+        background-color: var(--color-button-active);
+      }
+    }
+  }
+}

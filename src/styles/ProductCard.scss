@@ -1,0 +1,33 @@
+
+.productCard {
+  color: var(--color-font-primary);
+  &__img {
+    margin: 14px 0;
+  }
+  &__price {
+    align-self: end;
+    &:hover {
+      color: var(--color-font-secondary);
+    }
+  }
+
+  &:hover,
+  :focus {
+    cursor: pointer;
+    .productCard__img {
+      filter: drop-shadow(0px 0px 15px var(--color-yellow));
+      -webkit-filter: drop-shadow(0px 0px 15px var(--color-yellow));
+      -moz-filter: drop-shadow(0px 0px 15px var(--color-yellow));
+    }
+  }
+  &:active {
+    cursor: pointer;
+    color: var(--color-font-secondary);
+    .productCard__img {
+      filter: grayscale(75%) drop-shadow(0px 0px 10px var(--color-coral));
+      -webkit-filter: grayscale(75%)
+        drop-shadow(0px 0px 10px var(--color-coral));
+      -moz-filter: grayscale(75%) drop-shadow(0px 0px 10px var(--color-coral));
+    }
+  }
+}
