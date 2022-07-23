@@ -12,12 +12,7 @@ function capitalize(string) {
 
 function ProductDetailsView({ mobileSpecifications, setCartCount }) {
   return (
-    <FlexBox
-      gap="100px"
-      justifyContent="center"
-      alignContent="center"
-      pt="48px"
-    >
+    <FlexBox gap="76px" justifyContent="center" alignContent="center">
       <FlexItem>
         <img src={mobileSpecifications.imgUrl} alt="" />
       </FlexItem>

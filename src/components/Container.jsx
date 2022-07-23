@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexBox, FlexItem } from 'react-styled-flex';
+import { FlexItem } from 'react-styled-flex';
 
 function Container({ title, heading, column, capitalize, children }) {
   return (
@@ -7,9 +7,9 @@ function Container({ title, heading, column, capitalize, children }) {
       <FlexItem box as={heading} justifySelf="flex-start">
         {capitalize(title)}
       </FlexItem>
-      <FlexBox as="ul" padding="0" alignItems="flex-start" {...{ column }}>
+      <FlexItem box as="ul" padding="0" alignItems="flex-start" {...{ column }}>
         {children}
-      </FlexBox>
+      </FlexItem>
     </FlexItem>
   );
 }

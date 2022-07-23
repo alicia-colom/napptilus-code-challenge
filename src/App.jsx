@@ -14,7 +14,15 @@ function App() {
   return (
     <div className="App">
       <Header {...{ cartCount }} />
-      <FlexBox as="main" column center className="main">
+      <FlexBox
+        as="main"
+        column
+        center
+        className="main"
+        maxWidth="872px"
+        padding="56px 0"
+        margin="auto"
+      >
         <Routes>
           <Route
             exact

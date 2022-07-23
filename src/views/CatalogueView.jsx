@@ -21,13 +21,12 @@ function CatalogueView({ setIsLoading, setMobileSpecifications }) {
   return (
     <FlexBox
       as="ul"
+      padding="0"
+      margin="0"
       gap="24px"
-      width="872px"
-      maxWidth="90vw"
+      wrap
       justifyContent="center"
       alignContent="center"
-      wrap
-      padding="0"
     >
       {initialList.map((mobile) => (
         <ProductCard
