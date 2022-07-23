@@ -43,17 +43,15 @@
 }
 .cancelButton {
   margin: 0 6px;
-  padding: 3px 6px;
+  padding: 2px 5px;
   background-color: var(--color-button);
   border: none;
   border-radius: 6px;
   outline: none;
   color: var(--color-font-button);
+  font-size: 12px;
   &:hover {
     cursor: pointer;
     background-color: var(--color-button-hover);
-  }
-  &__icon {
-    font-size: 14px;
   }
 }

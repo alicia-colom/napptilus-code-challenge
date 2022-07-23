@@ -33,7 +33,7 @@ function SearchBar({ term, setTerm }) {
           className="cancelButton"
           onClick={() => setTerm('')}
         >
-          <i className="fa fa-times button__icon" aria-hidden="true" />
+          <i className="fa fa-times" aria-hidden="true" />
         </button>
       </FlexBox>
     </form>
