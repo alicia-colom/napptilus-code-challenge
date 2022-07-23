@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { Routes, Route } from 'react-router-dom';
-
 import { CatalogueView, ProductDetailsView } from './views';
 import { Header, Footer } from './components';
 import './styles/App.scss';
@@ -13,12 +12,13 @@ function capitalize(string) {
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState('catalogue');
-  const [mobileSpecifications, setMobileSpecifications] = useState(null);
+  const [term, setTerm] = useState('');
   const [cartCount, setCartCount] = useState(0);
+  const [mobileSpecifications, setMobileSpecifications] = useState(null);
 
   return (
     <div className="App">
-      <Header {...{ currentPage, cartCount }} />
+      <Header {...{ currentPage, cartCount, term, setTerm }} />
       <FlexBox
         as="main"
         column
@@ -35,6 +35,8 @@ function App() {
             element={
               <CatalogueView
                 {...{
+                  term,
+                  setTerm,
                   setIsLoading,
                   setCurrentPage,
                   setMobileSpecifications,

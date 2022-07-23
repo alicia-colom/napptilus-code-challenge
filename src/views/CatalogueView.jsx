@@ -5,12 +5,27 @@ import { getItemFromLocalStorage } from '../services/storage';
 import { ProductCard } from '../components';
 
 function CatalogueView({
+  term,
+  setTerm,
   setIsLoading,
   setCurrentPage,
   setMobileSpecifications,
   capitalize,
 }) {
   const [initialList, setInitialList] = useState([]);
+  const termToFilter = term && term.toLowerCase().trim();
+
+  const filteredList = initialList.filter((mobile) => {
+    const brandToFilter = mobile.brand.toLowerCase().trim();
+    const modelToFilter = mobile.model.toLowerCase().trim();
+
+    return (
+      brandToFilter.includes(termToFilter) ||
+      modelToFilter.includes(termToFilter)
+    );
+  });
+
+  const catalogue = term ? filteredList : initialList;
 
   useEffect(() => {
     const data = getItemFromLocalStorage('catalogue');
@@ -37,10 +52,16 @@ function CatalogueView({
       justifyContent="center"
       alignContent="center"
     >
-      {initialList.map((mobile) => (
+      {catalogue.map((mobile) => (
         <ProductCard
           key={mobile.id}
-          {...{ mobile, setIsLoading, setMobileSpecifications, capitalize }}
+          {...{
+            mobile,
+            setTerm,
+            setIsLoading,
+            setMobileSpecifications,
+            capitalize,
+          }}
         />
       ))}
     </FlexBox>

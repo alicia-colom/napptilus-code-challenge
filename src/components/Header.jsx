@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FlexBox } from 'react-styled-flex';
 import SearchBar from './SearchBar';
 import logoPhonestore from '../assets/phonestore-alfa.png';
 import '../styles/Header.scss';
 
-function Header({ currentPage, cartCount }) {
-  const [term, setTerm] = useState('');
+function Header({ currentPage, cartCount, term, setTerm }) {
   const isCatalogueView = currentPage === 'catalogue';
   const hiddenInCatalogue = isCatalogueView && ' hidden';
 
   return (
     <FlexBox as="header" className="headerContainer" center>
-      <FlexBox
-        className="header"
-        justifyContent="space-between"
-        alignSelf="center"
-      >
+      <FlexBox className="header" justifyContent="space-between">
         <Link to="/" className="header__heading">
           <img
             className="header__heading--logo"
