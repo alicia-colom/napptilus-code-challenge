@@ -10,7 +10,7 @@ function Container({
   children,
 }) {
   return (
-    <FlexItem>
+    <FlexItem className="container">
       <FlexItem box as={headingType} justifySelf="flex-start">
         {capitalize(title)}
       </FlexItem>

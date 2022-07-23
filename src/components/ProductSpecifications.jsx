@@ -22,7 +22,7 @@ const ProductSpecifications = ({ mobileSpecifications, capitalize }) => {
       return (
         <FlexItem as="li" key={index} box center alignItems="baseline">
           <h5>{property}:</h5>
-          <p className="productView__info--text">{value}</p>
+          <p>{value}</p>
         </FlexItem>
       );
     },

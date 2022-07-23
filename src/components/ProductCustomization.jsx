@@ -54,7 +54,7 @@ function ProductCustomization({
         {...{ selectedMobileToCart, handleCustomizationChange, capitalize }}
       />
       <button
-        className="productView__info--button"
+        className="productView__customization--button"
         type="submit"
         onClick={handleAddToCart}
         disabled={disabledButton}

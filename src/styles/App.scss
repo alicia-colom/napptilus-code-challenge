@@ -40,14 +40,21 @@
       margin: 0 10vw 50px 10vw;
     }
   }
+
   &__info {
     @media all and (max-width: 720px) {
       margin: 0 7vw;
     }
-    &--text {
-      text-align: start;
-      margin-left: 6px;
-    }
+    // &--text {
+    //   text-align: start;
+    //   margin-left: 6px;
+    // }
+  }
+
+  &__specifications {
+  }
+
+  &__customization {
     &--button {
       margin-top: 32px;
       padding: 7px 14px;
@@ -68,5 +75,19 @@
         background-color: var(--color-button-active);
       }
     }
+  }
+}
+
+.container {
+  margin: 8px 0;
+  padding: 18px 32px;
+  border: 0.5px solid var(--color-active);
+  border-radius: 6px;
+  background-color: var(--color-bg-main);
+
+  h5,
+  p {
+    margin: 10px 0 10px 6px;
+    text-align: start;
   }
 }
