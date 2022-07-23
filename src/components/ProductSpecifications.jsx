@@ -2,13 +2,19 @@ import React from 'react';
 import { FlexItem } from 'react-styled-flex';
 
 function ProductSpecifications({ mobileSpecifications, capitalize }) {
-  const noToShowInDescription = ['id', 'brand', 'model', 'price', 'imgUrl'];
+  const noToShowInDescription = [
+    'id',
+    'brand',
+    'model',
+    'price',
+    'imgUrl',
+    'primaryCamera',
+    'secondaryCmera',
+  ];
   const isCameraInfo = Object.entries(mobileSpecifications).filter(
     ([key]) =>
       key && (key.includes('primaryCamera') || key.includes('secondaryCmera')),
   );
-
-  console.log('*** CAMERA', isCameraInfo);
 
   const cameraContent = () =>
     isCameraInfo &&
