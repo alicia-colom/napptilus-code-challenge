@@ -13,7 +13,7 @@ function ProductCard({
 }) {
   const productId = mobile.id;
   const productName = mobile.brand.toUpperCase();
-  const productPrice = `${mobile.price} €`;
+  const productPrice = `${mobile.price ? mobile.price : '--'} €`;
 
   const handleLinkClick = () => {
     setIsLoading(true);

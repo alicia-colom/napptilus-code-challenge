@@ -16,7 +16,9 @@ function ProductDetailsView({
   const productName = `${mobileSpecifications.brand.toUpperCase()} · ${
     mobileSpecifications.model
   }`;
-  const productPrice = `${mobileSpecifications.price} €`;
+  const productPrice = `${
+    mobileSpecifications.price ? mobileSpecifications.price : '--'
+  } €`;
 
   useEffect(() => {
     setCurrentPage('product');
