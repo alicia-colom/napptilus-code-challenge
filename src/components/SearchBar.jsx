@@ -30,10 +30,10 @@ function SearchBar({ term, setTerm }) {
         <button
           type="button"
           title="Borrar búsqueda"
-          className="btn"
+          className="cancelButton"
           onClick={() => setTerm('')}
         >
-          <i className="fa fa-times btn__icon" aria-hidden="true" />
+          <i className="fa fa-times button__icon" aria-hidden="true" />
         </button>
       </FlexBox>
     </form>
