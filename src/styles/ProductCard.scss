@@ -1,11 +1,20 @@
 .productCard {
+  width: 226px;
   color: var(--color-font-primary);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   &__img {
+    max-height: 184px;
+    width: auto;
     margin: 14px 0;
+    align-self: center;
   }
   &__price {
     align-self: end;
-    
+
     &:hover,
     &:focus {
       color: var(--color-font-secondary);
