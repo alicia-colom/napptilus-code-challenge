@@ -7,6 +7,7 @@ import '../styles/ProductCard.scss';
 
 function ProductCard({
   mobile,
+  setTerm,
   setIsLoading,
   setMobileSpecifications,
   capitalize,
@@ -17,6 +18,7 @@ function ProductCard({
 
   const handleLinkClick = () => {
     setIsLoading(true);
+
     if (productId) {
       const dataStored = getItemFromLocalStorage(productId);
       if (dataStored) {
@@ -29,6 +31,8 @@ function ProductCard({
         });
       }
     }
+
+    setTerm('');
   };
 
   return (
