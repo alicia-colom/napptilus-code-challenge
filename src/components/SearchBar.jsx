@@ -20,7 +20,7 @@ function SearchBar({ term, setTerm }) {
           name="search"
           type="text"
           className="searchBox__textArea"
-          title="Escribe tu término de búsqueda"
+          title="Type here to search by BRAND or MODEL"
           placeholder="Search..."
           value={term}
           required
@@ -29,7 +29,7 @@ function SearchBar({ term, setTerm }) {
         />
         <button
           type="button"
-          title="Borrar búsqueda"
+          title="Clear"
           className="cancelButton"
           onClick={() => setTerm('')}
         >

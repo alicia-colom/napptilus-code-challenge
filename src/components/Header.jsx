@@ -21,7 +21,7 @@ function Header({ currentPage, cartCount }) {
           <img
             className="header__heading--logo"
             src={logoPhonestore}
-            alt="Logo Phonestore"
+            alt="Phonestore logo"
             title="Back to home"
           />
           <h1 className={`header__heading--title ${hiddenInCatalogue}`}>
