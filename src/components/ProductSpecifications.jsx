@@ -2,7 +2,7 @@ import React from 'react';
 import { FlexItem } from 'react-styled-flex';
 
 function ProductSpecifications({ mobileSpecifications, capitalize }) {
-  const noToShowInDescription = [
+  const specificationsToBeExcluded = [
     'id',
     'brand',
     'model',
@@ -11,6 +11,7 @@ function ProductSpecifications({ mobileSpecifications, capitalize }) {
     'primaryCamera',
     'secondaryCmera',
   ];
+
   const isCameraInfo = Object.entries(mobileSpecifications).filter(
     ([key]) =>
       key && (key.includes('primaryCamera') || key.includes('secondaryCmera')),
@@ -45,7 +46,7 @@ function ProductSpecifications({ mobileSpecifications, capitalize }) {
     ([key, value]) =>
       value &&
       typeof value === 'string' &&
-      !noToShowInDescription.includes(key),
+      !specificationsToBeExcluded.includes(key),
   );
 
   const descriptionContent = () =>
