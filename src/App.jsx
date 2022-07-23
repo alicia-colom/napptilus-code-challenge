@@ -6,6 +6,10 @@ import { CatalogueView, ProductDetailsView } from './views';
 import { Header, Footer } from './components';
 import './styles/App.scss';
 
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState('catalogue');
@@ -30,7 +34,12 @@ function App() {
             path="/"
             element={
               <CatalogueView
-                {...{ setIsLoading, setCurrentPage, setMobileSpecifications }}
+                {...{
+                  setIsLoading,
+                  setCurrentPage,
+                  setMobileSpecifications,
+                  capitalize,
+                }}
               />
             }
           />
@@ -40,7 +49,12 @@ function App() {
             element={
               !isLoading && (
                 <ProductDetailsView
-                  {...{ setCurrentPage, mobileSpecifications, setCartCount }}
+                  {...{
+                    setCurrentPage,
+                    mobileSpecifications,
+                    setCartCount,
+                    capitalize,
+                  }}
                 />
               )
             }

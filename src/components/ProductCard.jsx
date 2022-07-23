@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import { getProductDetail } from '../services/api';
 import { getItemFromLocalStorage } from '../services/storage';
 import Container from './Container';
+import '../styles/ProductCard.scss';
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
+function ProductCard({
+  mobile,
+  setIsLoading,
+  setMobileSpecifications,
+  capitalize,
+}) {
   const productId = mobile.id;
+  const productName = mobile.brand.toUpperCase();
+  const productPrice = `${mobile.price} €`;
 
   const handleLinkClick = () => {
     setIsLoading(true);
@@ -26,9 +30,6 @@ function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
       }
     }
   };
-
-  const productName = mobile.brand.toUpperCase();
-  const productPrice = `${mobile.price} €`;
 
   return (
     <Link

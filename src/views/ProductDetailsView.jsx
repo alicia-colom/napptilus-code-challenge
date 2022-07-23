@@ -5,15 +5,13 @@ import {
   ProductSpecifications,
   ProductCustomization,
 } from '../components';
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import '../styles/ProductDetailsView.scss';
 
 function ProductDetailsView({
   setCurrentPage,
   mobileSpecifications,
   setCartCount,
+  capitalize,
 }) {
   const productName = `${mobileSpecifications.brand.toUpperCase()} · ${
     mobileSpecifications.model

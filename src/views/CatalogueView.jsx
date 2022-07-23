@@ -8,6 +8,7 @@ function CatalogueView({
   setIsLoading,
   setCurrentPage,
   setMobileSpecifications,
+  capitalize,
 }) {
   const [initialList, setInitialList] = useState([]);
 
@@ -39,7 +40,7 @@ function CatalogueView({
       {initialList.map((mobile) => (
         <ProductCard
           key={mobile.id}
-          {...{ mobile, setIsLoading, setMobileSpecifications }}
+          {...{ mobile, setIsLoading, setMobileSpecifications, capitalize }}
         />
       ))}
     </FlexBox>
