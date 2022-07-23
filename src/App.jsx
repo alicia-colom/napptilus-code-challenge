@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { Routes, Route } from 'react-router-dom';
 import { CatalogueView, ProductDetailsView } from './views';
-import { Header, Footer } from './components';
+import { Header, Footer, Loader } from './components';
 import './styles/App.scss';
 
 function capitalize(string) {
@@ -49,7 +49,9 @@ function App() {
             exact
             path="/product/:id"
             element={
-              !isLoading && (
+              isLoading ? (
+                <Loader />
+              ) : (
                 <ProductDetailsView
                   {...{
                     setCurrentPage,

@@ -2,6 +2,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Select from './Select';
 import Container from './Container';
+import Loader from './Loader';
 import SearchBar from './SearchBar';
 import ProductCard from './ProductCard';
 import ProductCustomization from './ProductCustomization';
@@ -12,6 +13,7 @@ export {
   Footer,
   Select,
   Container,
+  Loader,
   SearchBar,
   ProductCard,
   ProductCustomization,
