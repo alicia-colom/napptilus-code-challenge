@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "eslint:recommended", 
-    "plugin:prettier/recommended", 
-    "airbnb"
-  ],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "airbnb"],
   "env": {
     "browser": true,
     "es6": true,
@@ -13,6 +9,7 @@
     "prettier/prettier": "warn",
     "react/prop-types": 0,
     "no-useless-catch": 0,
-    "operator-linebreak": 0
+    "operator-linebreak": 0,
+    "object-curly-newline": 0
   }
 }
