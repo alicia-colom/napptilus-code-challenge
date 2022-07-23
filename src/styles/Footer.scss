@@ -10,18 +10,18 @@
     font-size: 12px;
 
     &--icon {
-      color: var(--color-pink);
+      color: var(--color-button);
     }
     &--author {
       font-weight: 800;
       text-decoration: none;
-      color: var(--color-pink);
+      color: var(--color-button);
       &:hover {
         cursor: pointer;
-        color: var(--color-coral);
+        color: var(--color-button-hover);
       }
       &:active {
-        color: var(--color-coral);
+        color: var(--color-button-hover);
       }
     }
   }
