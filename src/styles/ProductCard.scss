@@ -1,4 +1,3 @@
-
 .productCard {
   color: var(--color-font-primary);
   &__img {
@@ -6,13 +5,15 @@
   }
   &__price {
     align-self: end;
-    &:hover {
+    
+    &:hover,
+    &:focus {
       color: var(--color-font-secondary);
     }
   }
 
   &:hover,
-  :focus {
+  &:focus {
     cursor: pointer;
     .productCard__img {
       filter: drop-shadow(0px 0px 15px var(--color-yellow));

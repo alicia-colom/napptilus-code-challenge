@@ -24,7 +24,7 @@ function App() {
         column
         center
         className="main"
-        maxWidth="872px"
+        maxWidth="984px"
         padding="50px 0"
         margin="auto"
       >

@@ -1,4 +1,3 @@
-
 .productView {
   &__img {
     margin-right: 7vw;
@@ -29,7 +28,9 @@
       font-size: 18px;
       font-weight: 600;
       color: var(--color-font-button);
-      &:hover {
+      
+      &:hover,
+      &:focus {
         cursor: pointer;
         color: var(--color-button);
         background-color: var(--color-button-hover);

@@ -9,12 +9,10 @@
   }
 }
 .header {
-  max-width: 875px;
+  width: 90vw;
+  max-width: 984px;
   margin: 0 auto;
   background-color: var(--color-bg-header);
-  @media all and (max-width: 1460px) {
-    width: 90vw;
-  }
 
   &__heading {
     display: flex;
