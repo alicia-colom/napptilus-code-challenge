@@ -15,9 +15,6 @@
     }
   }
 
-  &__specifications {
-  }
-
   &__customization {
     &--button {
       margin-top: 32px;
@@ -28,9 +25,8 @@
       font-size: 18px;
       font-weight: 600;
       color: var(--color-font-button);
-      
-      &:hover,
-      &:focus {
+
+      &:hover {
         cursor: pointer;
         color: var(--color-button);
         background-color: var(--color-button-hover);

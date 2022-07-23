@@ -46,8 +46,7 @@
   color: var(--color-font-button);
   font-size: 12px;
 
-  &:hover,
-  &:focus {
+  &:hover {
     cursor: pointer;
     color: var(--color-button);
     background-color: var(--color-button-hover);
