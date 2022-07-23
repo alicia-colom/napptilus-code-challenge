@@ -1,7 +1,8 @@
 import React from 'react';
 import { FlexItem } from 'react-styled-flex';
+import { capitalize } from '../utils/helpers';
 
-function ProductSpecifications({ mobileSpecifications, capitalize }) {
+function ProductSpecifications({ mobileSpecifications }) {
   const specificationsToBeExcluded = [
     'id',
     'brand',

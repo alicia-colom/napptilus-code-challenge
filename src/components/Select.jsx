@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlexItem } from 'react-styled-flex';
+import { capitalize } from '../utils/helpers';
 
 function Select({
   label,
@@ -7,7 +8,6 @@ function Select({
   options,
   selectedMobileToCart,
   handleCustomizationChange,
-  capitalize,
 }) {
   return (
     <FlexItem box as="li" key={label} center>

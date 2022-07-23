@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { updateCart } from '../services/api';
 import Select from './Select';
 
-function ProductCustomization({
-  mobileSpecifications,
-  setCartCount,
-  capitalize,
-}) {
+function ProductCustomization({ mobileSpecifications, setCartCount }) {
   const productDetailsForCustomization = Object.entries(
     mobileSpecifications,
   ).filter(([key]) => key && key === 'options')[0][1];
@@ -45,13 +41,13 @@ function ProductCustomization({
         label="color"
         code="colorCode"
         options={colorOptions}
-        {...{ selectedMobileToCart, handleCustomizationChange, capitalize }}
+        {...{ selectedMobileToCart, handleCustomizationChange }}
       />
       <Select
         label="storage"
         code="storageCode"
         options={storageOptions}
-        {...{ selectedMobileToCart, handleCustomizationChange, capitalize }}
+        {...{ selectedMobileToCart, handleCustomizationChange }}
       />
       <button
         className="productView__customization--button"

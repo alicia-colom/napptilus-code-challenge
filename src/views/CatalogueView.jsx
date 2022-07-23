@@ -10,7 +10,6 @@ function CatalogueView({
   setIsLoading,
   setCurrentPage,
   setMobileSpecifications,
-  capitalize,
 }) {
   const [initialList, setInitialList] = useState([]);
   const termToFilter = term && term.toLowerCase().trim();
@@ -60,7 +59,6 @@ function CatalogueView({
             setTerm,
             setIsLoading,
             setMobileSpecifications,
-            capitalize,
           }}
         />
       ))}

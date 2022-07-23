@@ -5,10 +5,6 @@ import { CatalogueView, ProductDetailsView } from './views';
 import { Header, Footer, Loader } from './components';
 import './styles/App.scss';
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState('catalogue');
@@ -40,7 +36,6 @@ function App() {
                   setIsLoading,
                   setCurrentPage,
                   setMobileSpecifications,
-                  capitalize,
                 }}
               />
             }
@@ -57,7 +52,6 @@ function App() {
                     setCurrentPage,
                     mobileSpecifications,
                     setCartCount,
-                    capitalize,
                   }}
                 />
               )

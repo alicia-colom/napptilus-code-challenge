@@ -10,7 +10,6 @@ function ProductCard({
   setTerm,
   setIsLoading,
   setMobileSpecifications,
-  capitalize,
 }) {
   const productId = mobile.id;
   const productName = mobile.brand.toUpperCase();
@@ -48,7 +47,6 @@ function ProductCard({
         column
         center
         width="200px"
-        {...{ capitalize }}
       >
         <h4>{mobile.model}</h4>
         <img

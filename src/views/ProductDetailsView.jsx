@@ -11,7 +11,6 @@ function ProductDetailsView({
   setCurrentPage,
   mobileSpecifications,
   setCartCount,
-  capitalize,
 }) {
   const productName = `${mobileSpecifications.brand.toUpperCase()} · ${
     mobileSpecifications.model
@@ -36,36 +35,17 @@ function ProductDetailsView({
         <img src={mobileSpecifications.imgUrl} alt="" />
       </FlexItem>
       <FlexItem box column className="productView__info" gap="14px">
-        <Container
-          title={productName}
-          headingType="h2"
-          contentType="div"
-          {...{ capitalize }}
-        >
+        <Container title={productName} headingType="h2" contentType="div">
           <FlexItem as="h5" paddingRight="10px">
             Price:
           </FlexItem>
           <FlexItem as="h2">{productPrice}</FlexItem>
         </Container>
-        <Container
-          title="description"
-          headingType="h4"
-          contentType="ul"
-          column
-          {...{ capitalize }}
-        >
-          <ProductSpecifications {...{ mobileSpecifications, capitalize }} />
+        <Container title="description" headingType="h4" contentType="ul" column>
+          <ProductSpecifications {...{ mobileSpecifications }} />
         </Container>
-        <Container
-          title="actions"
-          headingType="h4"
-          contentType="ul"
-          column
-          {...{ capitalize }}
-        >
-          <ProductCustomization
-            {...{ mobileSpecifications, setCartCount, capitalize }}
-          />
+        <Container title="actions" headingType="h4" contentType="ul" column>
+          <ProductCustomization {...{ mobileSpecifications, setCartCount }} />
         </Container>
       </FlexItem>
     </FlexBox>
