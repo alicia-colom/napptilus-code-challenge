@@ -1,13 +1,26 @@
 import React from 'react';
 import { FlexItem } from 'react-styled-flex';
 
-function Container({ title, heading, column, capitalize, children }) {
+function Container({
+  title,
+  headingType,
+  contentType,
+  column,
+  capitalize,
+  children,
+}) {
   return (
     <FlexItem>
-      <FlexItem box as={heading} justifySelf="flex-start">
+      <FlexItem box as={headingType} justifySelf="flex-start">
         {capitalize(title)}
       </FlexItem>
-      <FlexItem box as="ul" padding="0" alignItems="flex-start" {...{ column }}>
+      <FlexItem
+        box
+        as={contentType}
+        padding="0"
+        alignItems="baseline"
+        {...{ column }}
+      >
         {children}
       </FlexItem>
     </FlexItem>

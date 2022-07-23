@@ -11,35 +11,50 @@ function capitalize(string) {
 }
 
 function ProductDetailsView({ mobileSpecifications, setCartCount }) {
+  const productName = `${mobileSpecifications.brand.toUpperCase()} · ${
+    mobileSpecifications.model
+  }`;
+  const productPrice = `${mobileSpecifications.price} €`;
+
   return (
     <FlexBox
-      paddingTop="16px"
-      gap="76px"
+      wrap
       justifyContent="center"
       alignContent="center"
+      padding-top="20px"
+      margin="auto"
     >
-      <FlexItem>
+      <FlexItem className="productView__img">
         <img src={mobileSpecifications.imgUrl} alt="" />
       </FlexItem>
-      <FlexItem box column>
+      <FlexItem box column className="productView__info">
         <Container
-          title={`${mobileSpecifications.brand.toUpperCase()} · ${
-            mobileSpecifications.model
-          }`}
-          heading="h2"
+          title={productName}
+          headingType="h2"
+          contentType="div"
           {...{ capitalize }}
         >
-          <FlexItem as="h4">Price:</FlexItem>
-          <FlexItem as="h3">
-            &nbsp;
-            {mobileSpecifications.price}
-            &nbsp;€
+          <FlexItem as="h5" paddingRight="10px">
+            Price:
           </FlexItem>
+          <FlexItem as="h2">{productPrice}</FlexItem>
         </Container>
-        <Container title="description" heading="h4" column {...{ capitalize }}>
+        <Container
+          title="description"
+          headingType="h4"
+          contentType="ul"
+          column
+          {...{ capitalize }}
+        >
           <ProductSpecifications {...{ mobileSpecifications, capitalize }} />
         </Container>
-        <Container title="actions" heading="h4" column {...{ capitalize }}>
+        <Container
+          title="actions"
+          headingType="h4"
+          contentType="ul"
+          column
+          {...{ capitalize }}
+        >
           <ProductCustomization
             {...{ mobileSpecifications, setCartCount, capitalize }}
           />

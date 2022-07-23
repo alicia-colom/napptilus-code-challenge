@@ -1,6 +1,6 @@
 .App {
   /*  COLOR VARIABLES:  */
-  --color-white: #fcfcfc;
+  --color-white: #fff;
   --color-light-grey: #f5f5f5;
   --color-medium-grey: #d5dbe2;
   --color-dark-grey: #a0a0a0;
@@ -10,15 +10,16 @@
   --color-pink: #ef4a8c;
   --color-navy: #000549;
 
-  --color-bg-header: var(--color-wgite);
+  --color-bg: var(--color-white);
+  --color-bg-header: var(--color-white);
   --color-bg-main: var(--color-light-grey);
   --color-font-header: var(--color-coral);
   --color-font-primary: var(--color-navy);
   --color-font-secondary: var(--color-pink);
   --color-active: var(--color-medium-grey);
   --color-hover: var(--color-dark-grey);
-  --color-button: var(--color-orange);
-  --color-button-active: var(--color-pink);
+  --color-button: var(--color-pink);
+  --color-button-active: var(--color-orange);
   --color-button-hover: var(--color-coral);
   --color-font-button: var(--color-white);
 
@@ -26,6 +27,26 @@
 }
 
 .main {
-  margin-top: 90px;
-  background-color: var(--color-bg-header);
+  background-color: var(--color-bg);
+}
+
+.productView {
+  &__img {
+    margin-right: 7vw;
+    @media all and (max-width: 800px) {
+      margin-right: 6vw;
+    }
+    @media all and (max-width: 720px) {
+      margin: 0 10vw 50px 10vw;
+    }
+  }
+  &__info {
+    @media all and (max-width: 720px) {
+      margin: 0 7vw;
+    }
+    &--text {
+      text-align: start;
+      margin-left: 6px;
+    }
+  }
 }

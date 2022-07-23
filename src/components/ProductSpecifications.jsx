@@ -20,10 +20,9 @@ const ProductSpecifications = ({ mobileSpecifications, capitalize }) => {
       const value = item[1];
 
       return (
-        <FlexItem key={index} box center>
+        <FlexItem as="li" key={index} box center alignItems="baseline">
           <h5>{property}:</h5>
-          &nbsp;
-          <p>{value}</p>
+          <p className="productView__info--text">{value}</p>
         </FlexItem>
       );
     },

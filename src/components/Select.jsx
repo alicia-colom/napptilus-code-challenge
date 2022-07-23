@@ -10,7 +10,7 @@ function Select({
   capitalize,
 }) {
   return (
-    <FlexItem box key={label} center>
+    <FlexItem box as="li" key={label} center>
       <label htmlFor={label} style={{ width: '100px', justifySelf: 'right' }}>
         <h5>{capitalize(label)}</h5>
       </label>
