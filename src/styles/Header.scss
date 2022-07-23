@@ -1,17 +1,19 @@
-.header {
-  width: 100%;
+.headerContainer {
   height: 96px;
-  margin: 0 auto;
+  width: 100%;
   position: sticky;
   top: 0;
-  z-index: 10;
   background-color: var(--color-bg-header);
-  display: block;
   @media all and (max-width: 620px) {
-    height: 78px;
+    height: 80px;
   }
-  @media all and (max-width: 420px) {
-    height: 68px;
+}
+.header {
+  max-width: 875px;
+  margin: 0 auto;
+  background-color: var(--color-bg-header);
+  @media all and (max-width: 1460px) {
+    width: 90vw;
   }
 
   &__heading {
@@ -38,10 +40,13 @@
       color: var(--color-font-header);
       text-transform: capitalize;
       @media all and (max-width: 620px) {
+        font-size: 28px;
+      }
+      @media all and (max-width: 550px) {
         font-size: 24px;
       }
-      @media all and (max-width: 420px) {
-        display: none;
+      @media all and (max-width: 400px) {
+        font-size: 22px;
       }
     }
   }
@@ -61,5 +66,11 @@
         Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
         sans-serif;
     }
+  }
+}
+
+.hidden {
+  @media all and (max-width: 423px) {
+    display: none;
   }
 }

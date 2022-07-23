@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
 import {
   Container,
@@ -10,11 +10,19 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function ProductDetailsView({ mobileSpecifications, setCartCount }) {
+function ProductDetailsView({
+  setCurrentPage,
+  mobileSpecifications,
+  setCartCount,
+}) {
   const productName = `${mobileSpecifications.brand.toUpperCase()} · ${
     mobileSpecifications.model
   }`;
   const productPrice = `${mobileSpecifications.price} €`;
+
+  useEffect(() => {
+    setCurrentPage('product');
+  }, []);
 
   return (
     <FlexBox

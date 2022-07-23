@@ -4,7 +4,11 @@ import { getCatalogue } from '../services/api';
 import { getItemFromLocalStorage } from '../services/storage';
 import { ProductCard } from '../components';
 
-function CatalogueView({ setIsLoading, setMobileSpecifications }) {
+function CatalogueView({
+  setIsLoading,
+  setCurrentPage,
+  setMobileSpecifications,
+}) {
   const [initialList, setInitialList] = useState([]);
 
   useEffect(() => {
@@ -16,6 +20,10 @@ function CatalogueView({ setIsLoading, setMobileSpecifications }) {
         setInitialList(data);
       });
     }
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage('catalogue');
   }, []);
 
   return (

@@ -8,12 +8,13 @@ import './styles/App.scss';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState('catalogue');
   const [mobileSpecifications, setMobileSpecifications] = useState(null);
   const [cartCount, setCartCount] = useState(0);
 
   return (
     <div className="App">
-      <Header {...{ cartCount }} />
+      <Header {...{ currentPage, cartCount }} />
       <FlexBox
         as="main"
         column
@@ -28,7 +29,9 @@ function App() {
             exact
             path="/"
             element={
-              <CatalogueView {...{ setIsLoading, setMobileSpecifications }} />
+              <CatalogueView
+                {...{ setIsLoading, setCurrentPage, setMobileSpecifications }}
+              />
             }
           />
           <Route
@@ -37,7 +40,7 @@ function App() {
             element={
               !isLoading && (
                 <ProductDetailsView
-                  {...{ mobileSpecifications, setCartCount }}
+                  {...{ setCurrentPage, mobileSpecifications, setCartCount }}
                 />
               )
             }
