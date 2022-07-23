@@ -20,7 +20,7 @@
   --color-hover: var(--color-dark-grey);
   --color-button: var(--color-pink);
   --color-button-active: var(--color-orange);
-  --color-button-hover: var(--color-coral);
+  --color-button-hover: var(--color-yellow);
   --color-font-button: var(--color-white);
 
   text-align: center;
@@ -47,6 +47,26 @@
     &--text {
       text-align: start;
       margin-left: 6px;
+    }
+    &--button {
+      margin-top: 32px;
+      padding: 7px 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--color-button);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-font-button);
+      &:hover {
+        cursor: pointer;
+        color: var(--color-button);
+        background-color: var(--color-button-hover);
+      }
+      &:active {
+        cursor: pointer;
+        color: var(--color-font-button);
+        background-color: var(--color-button-active);
+      }
     }
   }
 }

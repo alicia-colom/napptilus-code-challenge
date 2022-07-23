@@ -53,7 +53,12 @@ function ProductCustomization({
         options={storageOptions}
         {...{ selectedMobileToCart, handleCustomizationChange, capitalize }}
       />
-      <button type="submit" onClick={handleAddToCart} disabled={disabledButton}>
+      <button
+        className="productView__info--button"
+        type="submit"
+        onClick={handleAddToCart}
+        disabled={disabledButton}
+      >
         Add to cart
       </button>
     </>
