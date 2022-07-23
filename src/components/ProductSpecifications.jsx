@@ -8,17 +8,27 @@ function ProductSpecifications({ mobileSpecifications, capitalize }) {
       key && (key.includes('primaryCamera') || key.includes('secondaryCmera')),
   );
 
+  console.log('*** CAMERA', isCameraInfo);
+
   const cameraContent = () =>
+    isCameraInfo &&
     isCameraInfo.map((item, index) => {
       const property = capitalize(item[0])
         .split(/(?=[A-Z])/)
         .join(' ');
-      const value = item[1].map((info) => <p>{info}</p>);
+      const value = item[1];
+
+      const cameraValue =
+        typeof value === 'string' ? (
+          <p>{value}</p>
+        ) : (
+          value.map((info) => <p>{info}</p>)
+        );
 
       return (
         <FlexItem as="li" key={index} box center alignItems="baseline">
           <h5>{property}:</h5>
-          {value}
+          {cameraValue}
         </FlexItem>
       );
     });
