@@ -29,11 +29,11 @@ function ProductSpecifications({ mobileSpecifications, capitalize }) {
         typeof value === 'string' ? (
           <p>{value}</p>
         ) : (
-          value.map((info) => <p>{info}</p>)
+          value.map((info, i) => <p key={i}>{info}</p>)
         );
 
       return (
-        <FlexItem as="li" key={index} box center alignItems="baseline">
+        <FlexItem key={index} as="li" box center alignItems="baseline">
           <h5>{property}:</h5>
           {cameraValue}
         </FlexItem>
@@ -57,7 +57,7 @@ function ProductSpecifications({ mobileSpecifications, capitalize }) {
       const value = item[1];
 
       return (
-        <FlexItem as="li" key={index} box center alignItems="baseline">
+        <FlexItem key={index} as="li" box center alignItems="baseline">
           <h5>{property}:</h5>
           <p>{value}</p>
         </FlexItem>
