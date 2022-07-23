@@ -19,8 +19,8 @@
   --color-active: var(--color-medium-grey);
   --color-hover: var(--color-dark-grey);
   --color-button: var(--color-pink);
-  --color-button-active: var(--color-orange);
   --color-button-hover: var(--color-yellow);
+  --color-button-active: var(--color-orange);
   --color-font-button: var(--color-white);
 
   text-align: center;
@@ -45,10 +45,6 @@
     @media all and (max-width: 720px) {
       margin: 0 7vw;
     }
-    // &--text {
-    //   text-align: start;
-    //   margin-left: 6px;
-    // }
   }
 
   &__specifications {
@@ -78,16 +74,35 @@
   }
 }
 
-.container {
-  margin: 8px 0;
-  padding: 18px 32px;
-  border: 0.5px solid var(--color-active);
-  border-radius: 6px;
-  background-color: var(--color-bg-main);
+.productCard {
+  color: var(--color-font-primary);
+  &__img {
+    margin: 14px 0;
+  }
+  &__price {
+    align-self: end;
+    &:hover {
+      color: var(--color-font-secondary);
+    }
+  }
 
-  h5,
-  p {
-    margin: 10px 0 10px 6px;
-    text-align: start;
+  &:hover,
+  :focus {
+    cursor: pointer;
+    .productCard__img {
+      filter: drop-shadow(0px 0px 15px var(--color-yellow));
+      -webkit-filter: drop-shadow(0px 0px 15px var(--color-yellow));
+      -moz-filter: drop-shadow(0px 0px 15px var(--color-yellow));
+    }
+  }
+  &:active {
+    cursor: pointer;
+    color: var(--color-font-secondary);
+    .productCard__img {
+      filter: grayscale(75%) drop-shadow(0px 0px 10px var(--color-coral));
+      -webkit-filter: grayscale(75%)
+        drop-shadow(0px 0px 10px var(--color-coral));
+      -moz-filter: grayscale(75%) drop-shadow(0px 0px 10px var(--color-coral));
+    }
   }
 }

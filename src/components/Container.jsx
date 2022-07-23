@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlexItem } from 'react-styled-flex';
+import '../styles/Container.scss';
 
 function Container({
   title,

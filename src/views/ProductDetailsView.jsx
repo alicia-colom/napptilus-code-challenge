@@ -35,7 +35,7 @@ function ProductDetailsView({
       <FlexItem className="productView__img">
         <img src={mobileSpecifications.imgUrl} alt="" />
       </FlexItem>
-      <FlexItem box column className="productView__info">
+      <FlexItem box column className="productView__info" gap="14px">
         <Container
           title={productName}
           headingType="h2"

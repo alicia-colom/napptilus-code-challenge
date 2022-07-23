@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FlexBox } from 'react-styled-flex';
 import { getProductDetail } from '../services/api';
 import { getItemFromLocalStorage } from '../services/storage';
+import Container from './Container';
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
   const productId = mobile.id;
@@ -23,19 +27,32 @@ function ProductCard({ mobile, setIsLoading, setMobileSpecifications }) {
     }
   };
 
+  const productName = mobile.brand.toUpperCase();
+  const productPrice = `${mobile.price} €`;
+
   return (
-    <Link to={`/product/${mobile.id}`} onClick={handleLinkClick}>
-      <FlexBox as="li" column width="200px" center>
-        <h3>{mobile.brand}</h3>
+    <Link
+      to={`/product/${mobile.id}`}
+      onClick={handleLinkClick}
+      className="productCard"
+    >
+      <Container
+        title={productName}
+        headingType="h3"
+        contentType="li"
+        column
+        center
+        width="200px"
+        {...{ capitalize }}
+      >
         <h4>{mobile.model}</h4>
-        <img src={mobile.imgUrl} alt={`${mobile.brand} ${mobile.model}`} />
-        <div>
-          <div>
-            {mobile.price}
-            &nbsp; €
-          </div>
-        </div>
-      </FlexBox>
+        <img
+          className="productCard__img"
+          src={mobile.imgUrl}
+          alt={`${mobile.brand} ${mobile.model}`}
+        />
+        <h3 className="productCard__price">{productPrice}</h3>
+      </Container>
     </Link>
   );
 }

@@ -1,0 +1,27 @@
+.container {
+  padding: 18px 32px;
+  border: 0.5px solid var(--color-active);
+  border-radius: 6px;
+  background-color: var(--color-bg-main);
+
+  h3,
+  h4,
+  h5,
+  p {
+    text-align: start;
+  }
+
+  h3 {
+    margin: 12px 0 0 0;
+    font-size: 22px;
+  }
+
+  h4,
+  h5 {
+    margin: 10px 0;
+  }
+
+  p {
+    margin-left: 6px;
+  }
+}
