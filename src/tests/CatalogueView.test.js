@@ -26,8 +26,6 @@ test('when catalogue is render, there are 12 ProductCard rendered', async () => 
   render(
     <CatalogueView
       term=""
-      setTerm={() => undefined}
-      setIsLoading={() => undefined}
       setCurrentPage={() => undefined}
       setMobileSpecifications={() => undefined}
     />,
