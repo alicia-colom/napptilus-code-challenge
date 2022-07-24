@@ -1,23 +1,39 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import mockFetch from './mocks/mockFetch';
+import waitForExpect from 'wait-for-expect';
+import mockApi from './mocks/mockApi';
 import CatalogueView from '../views/CatalogueView';
 
 beforeEach(() => {
-  jest.spyOn(window, 'fetch').mockImplementation(mockFetch);
+  jest.spyOn(window, 'fetch').mockImplementation(mockApi);
 });
 
 afterEach(() => {
   jest.restoreAllMocks();
 });
 
-test('renders list of products', () => {
-  render(<CatalogueView 
-    term={}
-  setTerm={}
-  setIsLoading={}
-  setCurrentPage={}
-  setMobileSpecifications={}
-  />);
-  const element = screen.getByText(/phonestore/i);
-  expect(element).toBeInTheDocument();
+const mockProductCard = jest.fn();
+jest.mock(
+  '../components/ProductCard',
+  () =>
+    function (props) {
+      mockProductCard(props);
+      return <mock-productCard />;
+    },
+);
+
+test('when catalogue is render, there are 12 ProductCard rendered', async () => {
+  render(
+    <CatalogueView
+      term=""
+      setTerm={() => undefined}
+      setIsLoading={() => undefined}
+      setCurrentPage={() => undefined}
+      setMobileSpecifications={() => undefined}
+    />,
+  );
+
+  await waitForExpect(() => {
+    expect(mockProductCard).toHaveBeenCalledTimes(12);
+  });
 });
