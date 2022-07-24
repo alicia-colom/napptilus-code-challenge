@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { FlexBox } from 'react-styled-flex';
 import { getCatalogue } from '../services/api';
 import { getItemFromLocalStorage } from '../services/storage';
-import { ProductCard } from '../components';
+import { ProductCard, NoResults } from '../components';
 
-function CatalogueView({
-  term,
-  setTerm,
-  setIsLoading,
-  setCurrentPage,
-  setMobileSpecifications,
-}) {
+function CatalogueView({ term, setCurrentPage, setSelectedProductId }) {
   const [initialList, setInitialList] = useState([]);
   const termToFilter = term && term.toLowerCase().trim();
 
@@ -24,6 +18,8 @@ function CatalogueView({
         modelToFilter.includes(termToFilter)
       );
     });
+
+  const searchWithNoResults = term && filteredList().length === 0;
 
   useEffect(() => {
     const dataStored = getItemFromLocalStorage('catalogue');
@@ -52,17 +48,13 @@ function CatalogueView({
       justifyContent="center"
       alignContent="center"
     >
-      {catalogue.map((mobile) => (
-        <ProductCard
-          key={mobile.id}
-          {...{
-            mobile,
-            setTerm,
-            setIsLoading,
-            setMobileSpecifications,
-          }}
-        />
-      ))}
+      {searchWithNoResults ? (
+        <NoResults />
+      ) : (
+        catalogue.map((mobile) => (
+          <ProductCard key={mobile.id} {...{ mobile, setSelectedProductId }} />
+        ))
+      )}
     </FlexBox>
   );
 }
