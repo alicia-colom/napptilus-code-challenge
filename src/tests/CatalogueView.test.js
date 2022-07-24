@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import waitForExpect from 'wait-for-expect';
 import mockApi from './mocks/mockApi';
 import CatalogueView from '../views/CatalogueView';
