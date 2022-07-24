@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import waitForExpect from 'wait-for-expect';
+import mockApi from './mocks/mockApi';
 import ProductDetailsView from '../views/ProductDetailsView';
 
 const productInfo = {
@@ -61,6 +63,14 @@ const productInfo = {
   },
 };
 
+beforeEach(() => {
+  jest.spyOn(window, 'fetch').mockImplementation(mockApi);
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 const mockProductSpecifications = jest.fn();
 jest.mock(
   '../components/ProductSpecifications',
@@ -81,41 +91,53 @@ jest.mock(
     },
 );
 
-test('when product details view is render, product basic info is shown', () => {
+test('when product details view is render, product basic info is shown', async () => {
   render(
     <ProductDetailsView
+      selectedProductId={productInfo.id}
+      setTerm={() => undefined}
+      setIsLoading={() => undefined}
       setCurrentPage={() => undefined}
-      mobileSpecifications={productInfo}
       setCartCount={() => undefined}
     />,
   );
 
-  expect(screen.findByText(productInfo.brand));
-  expect(screen.findByText(productInfo.model));
-  expect(screen.findByText(productInfo.price));
-  expect(screen.getByRole('img')).toBeInTheDocument();
+  await waitForExpect(() => {
+    expect(screen.findByText(productInfo.brand));
+    expect(screen.findByText(productInfo.model));
+    expect(screen.findByText(productInfo.price));
+    expect(screen.getByRole('img')).toBeInTheDocument();
+  });
 });
 
 test('when product details view is render, product description info is rendered', async () => {
   render(
     <ProductDetailsView
+      selectedProductId={productInfo.id}
+      setTerm={() => undefined}
+      setIsLoading={() => undefined}
       setCurrentPage={() => undefined}
-      mobileSpecifications={productInfo}
       setCartCount={() => undefined}
     />,
   );
 
-  expect(mockProductSpecifications).toHaveBeenCalledTimes(1);
+  await waitForExpect(() => {
+    expect(mockProductSpecifications).toHaveBeenCalledTimes(1);
+  });
 });
 
 test('when product details view is render, product customization info is rendered', async () => {
   render(
     <ProductDetailsView
+      selectedProductId={productInfo.id}
+      setTerm={() => undefined}
+      setIsLoading={() => undefined}
       setCurrentPage={() => undefined}
-      mobileSpecifications={productInfo}
       setCartCount={() => undefined}
     />,
   );
 
-  expect(mockProductCustomization).toHaveBeenCalledTimes(1);
+  await waitForExpect(() => {
+    expect(mockProductCustomization).toHaveBeenCalledTimes(1);
+  });
 });
