@@ -7,10 +7,10 @@ import './styles/App.scss';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState('');
   const [currentPage, setCurrentPage] = useState('catalogue');
   const [term, setTerm] = useState('');
   const [cartCount, setCartCount] = useState(0);
-  const [mobileSpecifications, setMobileSpecifications] = useState(null);
 
   return (
     <div className="App">
@@ -32,10 +32,8 @@ function App() {
               <CatalogueView
                 {...{
                   term,
-                  setTerm,
-                  setIsLoading,
                   setCurrentPage,
-                  setMobileSpecifications,
+                  setSelectedProductId,
                 }}
               />
             }
@@ -49,8 +47,10 @@ function App() {
               ) : (
                 <ProductDetailsView
                   {...{
+                    selectedProductId,
+                    setTerm,
+                    setIsLoading,
                     setCurrentPage,
-                    mobileSpecifications,
                     setCartCount,
                   }}
                 />

@@ -1,37 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getProductDetail } from '../services/api';
-import { getItemFromLocalStorage } from '../services/storage';
 import Container from './Container';
 import '../styles/ProductCard.scss';
 
-function ProductCard({
-  mobile,
-  setTerm,
-  setIsLoading,
-  setMobileSpecifications,
-}) {
+function ProductCard({ mobile, setSelectedProductId }) {
   const productId = mobile.id;
   const productName = mobile.brand.toUpperCase();
   const productPrice = `${mobile.price ? mobile.price : '--'} €`;
 
   const handleLinkClick = () => {
-    setIsLoading(true);
-
-    if (productId) {
-      const dataStored = getItemFromLocalStorage(productId);
-      if (dataStored) {
-        setMobileSpecifications(JSON.parse(dataStored));
-        setIsLoading(false);
-      } else {
-        getProductDetail(productId).then((data) => {
-          setMobileSpecifications(data);
-          setIsLoading(false);
-        });
-      }
-    }
-
-    setTerm('');
+    setSelectedProductId(productId);
   };
 
   return (
@@ -41,6 +19,7 @@ function ProductCard({
       className="productCard"
     >
       <Container
+        id={productId}
         title={productName}
         headingType="h3"
         contentType="li"

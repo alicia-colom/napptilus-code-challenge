@@ -1,29 +1,59 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlexBox, FlexItem } from 'react-styled-flex';
+import { getProductDetail } from '../services/api';
+import { getItemFromLocalStorage } from '../services/storage';
 import {
   Container,
   ProductSpecifications,
   ProductCustomization,
+  Loader,
 } from '../components';
 import '../styles/ProductDetailsView.scss';
 
 function ProductDetailsView({
+  selectedProductId,
+  setTerm,
+  setIsLoading,
   setCurrentPage,
-  mobileSpecifications,
   setCartCount,
 }) {
-  const productName = `${mobileSpecifications.brand.toUpperCase()} · ${
-    mobileSpecifications.model
-  }`;
-  const productPrice = `${
-    mobileSpecifications.price ? mobileSpecifications.price : '--'
-  } €`;
+  const [mobileSpecifications, setMobileSpecifications] = useState();
+
+  useEffect(() => {
+    setIsLoading(true);
+    const dataStored = getItemFromLocalStorage(
+      `product_id_${selectedProductId}`,
+    );
+    if (dataStored) {
+      setMobileSpecifications(JSON.parse(dataStored));
+      setIsLoading(false);
+    } else {
+      getProductDetail(selectedProductId).then((data) => {
+        setMobileSpecifications(data);
+        setIsLoading(false);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     setCurrentPage('product');
   }, []);
 
-  return (
+  useEffect(() => {
+    setIsLoading(false);
+    setTerm('');
+  }, [mobileSpecifications]);
+
+  const productName = `${
+    mobileSpecifications && mobileSpecifications.brand.toUpperCase()
+  } · ${mobileSpecifications && mobileSpecifications.model}`;
+  const productPrice = `${
+    mobileSpecifications && mobileSpecifications.price
+      ? mobileSpecifications.price
+      : '--'
+  } €`;
+
+  return mobileSpecifications ? (
     <FlexBox
       wrap
       justifyContent="center"
@@ -49,6 +79,8 @@ function ProductDetailsView({
         </Container>
       </FlexItem>
     </FlexBox>
+  ) : (
+    <Loader />
   );
 }
 
