@@ -14,24 +14,23 @@ function CatalogueView({
   const [initialList, setInitialList] = useState([]);
   const termToFilter = term && term.toLowerCase().trim();
 
-  const filteredList = initialList.filter((mobile) => {
-    const brandToFilter = mobile.brand.toLowerCase().trim();
-    const modelToFilter = mobile.model.toLowerCase().trim();
+  const filteredList = () =>
+    initialList.filter((mobile) => {
+      const brandToFilter = mobile.brand.toLowerCase().trim();
+      const modelToFilter = mobile.model.toLowerCase().trim();
 
-    return (
-      brandToFilter.includes(termToFilter) ||
-      modelToFilter.includes(termToFilter)
-    );
-  });
-
-  const catalogue = term ? filteredList : initialList;
+      return (
+        brandToFilter.includes(termToFilter) ||
+        modelToFilter.includes(termToFilter)
+      );
+    });
 
   useEffect(() => {
-    const data = getItemFromLocalStorage('catalogue');
-    if (data) {
-      setInitialList(JSON.parse(data));
+    const dataStored = getItemFromLocalStorage('catalogue');
+    if (dataStored) {
+      setInitialList(JSON.parse(dataStored));
     } else {
-      getCatalogue().then(() => {
+      getCatalogue().then((data) => {
         setInitialList(data);
       });
     }
@@ -40,6 +39,8 @@ function CatalogueView({
   useEffect(() => {
     setCurrentPage('catalogue');
   }, []);
+
+  const catalogue = term ? filteredList() : initialList;
 
   return (
     <FlexBox
