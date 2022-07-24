@@ -19,6 +19,8 @@
     "indent": 0,
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": 0,
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "prefer-const": 0,
+    "no-unused-expressions": 0
   }
 }
