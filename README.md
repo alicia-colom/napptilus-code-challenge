@@ -1,6 +1,12 @@
-# Getting Started with NAPPTILUS CODE CHALLENGE
+# Phonestore Code Challenge
+![Phonestore Code Challenge](/src/assets/phonestore.png?raw=true "Phonestore code challenge")
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) by Alicia Colom Ortega.
+## Getting Started with NAPPTILUS CODE CHALLENGE
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) by **Alicia Colom Ortega**.
+
+You can learn more in the **Notion** documentation:
+[NOTION DOCUMENTATION](https://www.notion.so/aliciacolom/NAPPTILUS-CODE-CHALLENGE-c6f8b3912f684f3bbbd6fda2c214385d).
 
 ## Available Scripts
 
@@ -25,8 +31,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run lint`
 
-Run the linting task.\
-
-## Learn More
-
-You can learn more in the [NAPPTILUS CODE CHALLENGE DOCUMENTATION](https://www.notion.so/aliciacolom/NAPPTILUS-CODE-CHALLENGE-c6f8b3912f684f3bbbd6fda2c214385d).
+Run the linting task.
